@@ -1,0 +1,21 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+*.local
+
+# editor / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Claude Code local dev config (machine-specific paths)
+.claude/
+
+# local notes / temp
+temp_images/
+*.log
+
+# Large original portrait kept locally as backup, not for repo
+public/profile/*.original.*

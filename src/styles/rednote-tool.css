@@ -1,0 +1,548 @@
+.rednote-tool {
+  min-height: 100vh;
+  background: #f7f4ef;
+  color: #211611;
+  padding: 32px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.rednote-tool__header,
+.rednote-tool__panel,
+.rednote-tool__metrics article {
+  background: rgba(255, 252, 247, 0.92);
+  border: 1px solid rgba(65, 43, 30, 0.12);
+  box-shadow: 0 18px 48px rgba(39, 24, 14, 0.08);
+}
+
+.rednote-tool__header {
+  border-radius: 22px;
+  padding: 28px 32px;
+}
+
+.rednote-tool__header-body {
+  max-width: 760px;
+}
+
+.rednote-tool__back {
+  display: inline-flex;
+  color: #6b5547;
+  text-decoration: none;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.rednote-tool__back:hover,
+.rednote-tool__card button:hover,
+.rednote-tool__collection button:hover,
+.rednote-tool__export-actions button:hover:not(:disabled) {
+  color: #ff2442;
+}
+
+.rednote-tool__eyebrow {
+  margin: 0 0 8px;
+  color: #9e4123;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.rednote-tool h1,
+.rednote-tool h2,
+.rednote-tool h3 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.rednote-tool h1 {
+  font-size: 38px;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.rednote-tool__header > div p:not(.rednote-tool__eyebrow),
+.rednote-tool__collection p:not(.rednote-tool__eyebrow),
+.rednote-tool__export p:not(.rednote-tool__eyebrow),
+.rednote-tool__panel-intro p:not(.rednote-tool__eyebrow),
+.rednote-tool__card-author,
+.rednote-tool__card-stats {
+  color: #6f5a4d;
+  line-height: 1.6;
+}
+
+.rednote-tool__hint {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.rednote-tool__hint code {
+  background: rgba(65, 43, 30, 0.08);
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.rednote-tool__meta-row {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.rednote-tool__meta-row li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rednote-tool__meta-row span {
+  font-size: 12px;
+  color: #9c8576;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.rednote-tool__meta-row strong {
+  font-size: 17px;
+  color: #211611;
+}
+
+.rednote-tool__tabs {
+  display: flex;
+  gap: 10px;
+  margin: 22px 0;
+  flex-wrap: wrap;
+}
+
+.rednote-tool__tabs button,
+.rednote-tool__controls input,
+.rednote-tool__controls select,
+.rednote-tool__card button,
+.rednote-tool__collection button,
+.rednote-tool__export-actions button,
+.rednote-tool__modal-close,
+.rednote-tool__modal-cta {
+  border: 1px solid rgba(65, 43, 30, 0.14);
+  background: #fffaf4;
+  color: #211611;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.rednote-tool__tabs button.is-active,
+.rednote-tool__collection button,
+.rednote-tool__export-actions button:first-child:not(:disabled),
+.rednote-tool__modal-cta:not(.is-disabled) {
+  background: #211611;
+  color: #fffaf4;
+}
+
+.rednote-tool__export-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.rednote-tool__modal-cta.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.rednote-tool__metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.rednote-tool__metrics article,
+.rednote-tool__panel {
+  border-radius: 18px;
+  padding: 22px 24px;
+}
+
+.rednote-tool__metrics span {
+  display: block;
+  color: #7d6657;
+  font-size: 13px;
+}
+
+.rednote-tool__metrics strong {
+  display: block;
+  font-size: 28px;
+  margin-top: 6px;
+}
+
+.rednote-tool__metrics strong em {
+  font-style: normal;
+  font-size: 14px;
+  color: #9c8576;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.rednote-tool__panel-intro {
+  margin-bottom: 18px;
+}
+
+.rednote-tool__panel-intro h2 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.rednote-tool__panel-intro p {
+  font-size: 14px;
+}
+
+.rednote-tool__panel-intro em {
+  font-style: normal;
+  background: rgba(255, 36, 66, 0.08);
+  color: #9e4123;
+  padding: 1px 6px;
+  border-radius: 5px;
+}
+
+.rednote-tool__controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.rednote-tool__controls input {
+  flex: 1;
+  border-radius: 12px;
+}
+
+.rednote-tool__controls select {
+  border-radius: 12px;
+}
+
+.rednote-tool__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.rednote-tool__card {
+  background: #fff;
+  border: 1px solid rgba(65, 43, 30, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.rednote-tool__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(39, 24, 14, 0.1);
+}
+
+.rednote-tool__cover {
+  aspect-ratio: 16 / 9;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rednote-tool__cover-index {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+.rednote-tool__cover-source {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.78;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rednote-tool__card-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.rednote-tool__card h3 {
+  font-size: 15px;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rednote-tool__card-author {
+  font-size: 13px;
+  margin: 0;
+}
+
+.rednote-tool__card-stats {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  margin: 0;
+  color: #8a7565;
+}
+
+.rednote-tool__card button {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 13px;
+  padding: 8px 14px;
+}
+
+.rednote-tool__collection,
+.rednote-tool__export {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.rednote-tool__collection h3,
+.rednote-tool__export h3 {
+  font-size: 20px;
+  margin: 6px 0;
+}
+
+.rednote-tool__source-queries {
+  margin: 22px 0;
+  padding: 18px;
+  background: rgba(255, 245, 235, 0.6);
+  border-radius: 14px;
+  border: 1px dashed rgba(65, 43, 30, 0.18);
+}
+
+.rednote-tool__chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.rednote-tool__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(65, 43, 30, 0.14);
+  font-size: 13px;
+  color: #4a3a2e;
+}
+
+.rednote-tool__chip em {
+  font-style: normal;
+  background: rgba(255, 36, 66, 0.1);
+  color: #9e4123;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.rednote-tool__table-wrap {
+  overflow: auto;
+  margin-top: 18px;
+}
+
+.rednote-tool__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.rednote-tool__table th,
+.rednote-tool__table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(65, 43, 30, 0.08);
+  text-align: left;
+  font-size: 14px;
+}
+
+.rednote-tool__table th {
+  background: rgba(65, 43, 30, 0.05);
+  font-weight: 600;
+}
+
+.rednote-tool__table tr {
+  cursor: pointer;
+}
+
+.rednote-tool__table tr:hover {
+  background: #fff7f1;
+}
+
+.rednote-tool__table-source {
+  color: #9e4123;
+  font-size: 13px;
+}
+
+.rednote-tool__export-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.rednote-tool__modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 12, 9, 0.5);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  z-index: 50;
+}
+
+.rednote-tool__modal-card {
+  position: relative;
+  width: min(640px, 100%);
+  max-height: 86vh;
+  overflow: auto;
+  background: #fffaf4;
+  border-radius: 18px;
+  padding: 28px 30px 24px;
+  box-shadow: 0 30px 60px rgba(17, 12, 9, 0.3);
+}
+
+.rednote-tool__modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border-radius: 999px;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  line-height: 1;
+  background: rgba(65, 43, 30, 0.08);
+  border-color: transparent;
+}
+
+.rednote-tool__modal-card h2 {
+  font-size: 22px;
+  line-height: 1.35;
+  margin-bottom: 8px;
+  padding-right: 32px;
+}
+
+.rednote-tool__modal-author {
+  color: #6f5a4d;
+  font-size: 14px;
+  margin: 0 0 18px;
+}
+
+.rednote-tool__modal-meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(65, 43, 30, 0.1);
+}
+
+.rednote-tool__modal-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rednote-tool__modal-meta dt {
+  font-size: 11px;
+  color: #9c8576;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.rednote-tool__modal-meta dd {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #211611;
+}
+
+.rednote-tool__modal-section {
+  margin-bottom: 18px;
+}
+
+.rednote-tool__modal-section p:not(.rednote-tool__eyebrow) {
+  margin: 4px 0 0;
+  color: #4a3a2e;
+  font-size: 14px;
+}
+
+.rednote-tool__modal-notice {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(255, 36, 66, 0.06);
+  color: #9e4123;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.rednote-tool__modal-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 12px 22px;
+  font-size: 14px;
+}
+
+.rednote-tool__empty {
+  color: #6f5a4d;
+  padding: 24px 0;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .rednote-tool {
+    padding: 18px;
+  }
+
+  .rednote-tool h1 {
+    font-size: 28px;
+  }
+
+  .rednote-tool__metrics,
+  .rednote-tool__grid,
+  .rednote-tool__modal-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rednote-tool__controls,
+  .rednote-tool__collection,
+  .rednote-tool__export {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 540px) {
+  .rednote-tool__metrics,
+  .rednote-tool__grid {
+    grid-template-columns: 1fr;
+  }
+}
