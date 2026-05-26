@@ -236,7 +236,7 @@ export const portfolioContent = {
       actionLabel: '访问站点',
     },
     {
-      type: 'local',
+      type: 'internal',
       title: 'RedNote Collector',
       subtitle: '小红书内容采集与整理工具',
       description:
@@ -245,7 +245,7 @@ export const portfolioContent = {
       practiceHighlights: ['从搜索、采集到导出把完整工具链落到可运行系统', '同时覆盖前端交互、服务端接口、导出能力与日志追踪', '把工程实现与产品工作流结合成一个可演示的完整作品'],
       tech: ['React', 'Vite', 'Express', 'MCP', 'Winston'],
       href: '/projects/rednote',
-      actionLabel: '查看工具',
+      actionLabel: '打开真实工具',
     },
   ],
   caseStudies: [

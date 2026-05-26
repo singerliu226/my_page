@@ -32,6 +32,12 @@ vi.mock('./pages/portfolio/PortfolioWorksPage', () => ({
   },
 }));
 
+vi.mock('./pages/collector/CollectorWorkspace', () => ({
+  default: function CollectorWorkspaceMock() {
+    return <main>RedNote Collector 真实工具工作区</main>;
+  },
+}));
+
 function renderAt(pathname) {
   window.history.pushState({}, '', pathname);
   return render(<App />);
@@ -71,5 +77,17 @@ describe('个人主页路由', () => {
     renderAt('/works');
 
     expect(await screen.findByText('项目作品详情页')).toBeInTheDocument();
+  });
+
+  test('RedNote 项目路由渲染真实工具工作区', async () => {
+    renderAt('/projects/rednote');
+
+    expect(await screen.findByText(/RedNote Collector 真实工具工作区/i)).toBeInTheDocument();
+  });
+
+  test('RedNote 深链继续停留在真实工具工作区', async () => {
+    renderAt('/projects/rednote/collections');
+
+    expect(await screen.findByText(/RedNote Collector 真实工具工作区/i)).toBeInTheDocument();
   });
 });

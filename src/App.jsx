@@ -5,7 +5,7 @@ const PortfolioPage = lazy(() => import('./pages/portfolio/PortfolioPage'));
 const PortfolioMethodPage = lazy(() => import('./pages/portfolio/PortfolioMethodPage'));
 const PortfolioExperiencePage = lazy(() => import('./pages/portfolio/PortfolioExperiencePage'));
 const PortfolioWorksPage = lazy(() => import('./pages/portfolio/PortfolioWorksPage'));
-const RedNoteToolPage = lazy(() => import('./pages/rednote/RedNoteToolPage'));
+const CollectorWorkspace = lazy(() => import('./pages/collector/CollectorWorkspace'));
 
 export function AppRoutes() {
   return (
@@ -15,7 +15,7 @@ export function AppRoutes() {
         <Route path="/method" element={<PortfolioMethodPage />} />
         <Route path="/experience" element={<PortfolioExperiencePage />} />
         <Route path="/works" element={<PortfolioWorksPage />} />
-        <Route path="/projects/rednote" element={<RedNoteToolPage />} />
+        <Route path="/projects/rednote/*" element={<CollectorWorkspace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Suspense>

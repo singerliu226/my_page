@@ -2,7 +2,7 @@
 
 个人品牌站与作品集源代码。
 
-线上版本：尚未部署（计划放到 Zeabur / Vercel）。
+线上版本：https://pageofme.zeabur.app/
 
 ## 技术栈
 
@@ -24,11 +24,10 @@ personal-homepage/
 ├── src/
 │   ├── pages/
 │   │   ├── portfolio/      # 首页与详情页（method / experience / works）
-│   │   └── rednote/        # RedNote Collector 演示页
+│   │   └── collector/      # RedNote Collector 真实工具工作区
 │   ├── components/portfolio/
 │   ├── data/
-│   │   ├── portfolio/      # 站点文案结构化数据
-│   │   └── rednote/        # 演示用的小红书采集快照
+│   │   └── portfolio/      # 站点文案结构化数据
 │   ├── styles/
 │   └── hooks/
 ├── docs/plans/             # 设计与实现记录
@@ -42,10 +41,12 @@ personal-homepage/
 - `/method` — 工作方法
 - `/experience` — 关键经历
 - `/works` — 精选作品 + 案例拆解
-- `/projects/rednote` — RedNote Collector 工具演示页（基于本地 demo 数据）
+- `/projects/rednote` — RedNote Collector 真实工具工作区
+- `/projects/rednote/collections` — 采集数据管理
+- `/projects/rednote/export` — 导出中心
 
-## 关于 RedNote Collector 演示页
+## 关于 RedNote Collector
 
-此页面是一份**演示快照**：包含 45 条 "人生 ERP 小红书调研" 主题下采集到的笔记元数据，
-可在线感受筛选、浏览与导出三步流程。搜索采集、登录态接入、笔记正文与评论抓取这些需要后端的能力，
-需要在本地运行独立的 rednote-collector 服务时启用，本站点不连接任何线上接口。
+`/projects/rednote` 加载真实工具工作区，不再读取演示快照数据。搜索、采集、数据管理与导出界面
+会直接调用 `/api` 下的后端接口；如果部署环境没有挂载后端服务，页面仍会正常打开，但执行采集类操作时
+会提示后端服务不可用。
