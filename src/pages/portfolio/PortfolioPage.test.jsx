@@ -124,14 +124,14 @@ describe('PortfolioPage 招聘转化信息', () => {
   test('时间轴详情卡保持固定位置，并按指定时间文案展示，个人 AI 项目点击后跳转到作品页', () => {
     renderPortfolioPage();
 
-    expect(screen.getByRole('button', { name: /2024-2026 复旦大学新闻与传播硕士/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /2024.*2027\.06 复旦大学新闻与传播硕士/i })).toBeInTheDocument();
     const personalProjectNode = screen.getByRole('button', { name: /2025-2026 个人 AI 项目/i });
     expect(personalProjectNode).toBeInTheDocument();
 
     const timelineDetailAnchor = screen.getByTestId('timeline-detail-anchor');
     expect(timelineDetailAnchor).not.toHaveAttribute('style');
 
-    const masterNode = screen.getByRole('button', { name: /2024-2026 复旦大学新闻与传播硕士/i });
+    const masterNode = screen.getByRole('button', { name: /2024.*2027\.06 复旦大学新闻与传播硕士/i });
     fireEvent.mouseEnter(masterNode);
     expect(screen.getByText(/进一步强化内容理解、传播判断与用户洞察能力/i)).toBeInTheDocument();
     expect(timelineDetailAnchor).not.toHaveAttribute('style');
@@ -144,7 +144,7 @@ describe('PortfolioPage 招聘转化信息', () => {
   test('时间轴详情区位于节点下方，hover 时仅替换文本并渐显详情', () => {
     renderPortfolioPage();
 
-    const masterNode = screen.getByRole('button', { name: /2024-2026 复旦大学新闻与传播硕士/i });
+    const masterNode = screen.getByRole('button', { name: /2024.*2027\.06 复旦大学新闻与传播硕士/i });
     const undergradNode = screen.getByRole('button', { name: /2015 - 2020 上海师范大学 · 经济学/i });
     const detailCard = screen.getByTestId('timeline-detail-card');
     const detailStage = screen.getByTestId('timeline-detail-stage');

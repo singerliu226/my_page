@@ -59,8 +59,8 @@ export const portfolioContent = {
         details: ['经济学训练为后续的商业判断、结构化分析与产品思维打下基础。'],
       },
       {
-        labelTime: '2024 — 2026',
-        detailTime: '2024 — 2026',
+        labelTime: '2024 — 2027.06',
+        detailTime: '2024 — 2027.06',
         title: '复旦大学 · 新闻与传播硕士',
         summary: '系统训练内容理解、传播判断与用户洞察。',
         details: ['系统沉淀内容研究、传播判断与用户洞察能力，形成更稳定的问题理解框架。'],
