@@ -29,12 +29,7 @@ function PortfolioExperienceSection({ experiences }) {
   ];
 
   return (
-    <section id="experience" className="portfolio-section">
-      <div className="portfolio-section__heading">
-        <p>关键经历</p>
-        <h2>实习提供真实协作场景，个人项目证明端到端的产品完成能力。</h2>
-      </div>
-
+    <section id="experience" className="portfolio-section" aria-label="经历">
       {groups.map((group) => (
         <section key={group.key} className="portfolio-experience-group" aria-label={group.eyebrow}>
           <div className="portfolio-experience-group__heading">

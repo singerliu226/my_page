@@ -18,7 +18,7 @@ describe('Portfolio 首页招聘入口', () => {
 
     expect(screen.getByRole('heading', { level: 1, name: '刘唱' })).toBeInTheDocument();
     expect(screen.getByRole('heading', {
-      name: '把真实用户问题，做成可验证的 AI 产品闭环。',
+      name: '我喜欢在生活/工作中发现真实用户问题，在调研后快速搭建，推动实现可验证的 AI 产品闭环。',
     })).toBeInTheDocument();
     expect(screen.getByText('AI 产品经理｜复旦大学新闻与传播硕士（2027 届）')).toBeInTheDocument();
     expect(screen.getByText('上海及长三角')).toBeInTheDocument();

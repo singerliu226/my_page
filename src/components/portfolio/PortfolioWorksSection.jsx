@@ -9,7 +9,6 @@ function PortfolioWorksSection({ works }) {
     <section id="works" className="portfolio-section portfolio-projects" aria-label="项目案例">
       <div className="portfolio-section__heading">
         <p>项目 / vibe coding</p>
-        <h2>每个项目都按同一逻辑阅读：看见产品，再理解我解决了什么问题。</h2>
         <small>说明：部分作品为 demo 级，仅用于呈现问题判断与产品想法；后续仍将持续完善。</small>
       </div>
 
