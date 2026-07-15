@@ -17,9 +17,9 @@ import PortfolioHeader from './PortfolioHeader';
  * @param {{label: string, href: string}} [props.backLink] - 页面顶部回退入口
  * @returns {JSX.Element}
  */
-function PortfolioPageFrame({ children, navItems = [], mainClassName = 'portfolio-main', backLink }) {
+function PortfolioPageFrame({ children, navItems = [], mainClassName = 'portfolio-main', backLink, pageClassName = '' }) {
   return (
-    <div className="portfolio-page">
+    <div className={`portfolio-page ${pageClassName}`.trim()}>
       <div className="portfolio-page__backdrop" aria-hidden="true" />
       <PortfolioHeader navItems={navItems} />
       <main className={mainClassName}>

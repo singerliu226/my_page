@@ -1,0 +1,662 @@
+/* 以信息密度、衬线标题与细规则构建的个人作品集排版。 */
+.portfolio-page--newsroom {
+  --news-paper: #f7f2e8;
+  --news-white: #fffdf8;
+  --news-ink: #1e1b18;
+  --news-muted: #6c6258;
+  --news-rule: rgba(30, 27, 24, 0.28);
+  --news-rule-soft: rgba(30, 27, 24, 0.14);
+  --news-red: #7a261c;
+  --news-red-soft: #ae8f79;
+  --news-sand: #e9dfd0;
+  --nyt-display: 'Newsreader', 'Noto Serif SC', 'Songti SC', STSong, serif;
+  --nyt-text: 'Libre Franklin', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  --nyt-meta: 'Libre Franklin', 'Noto Sans SC', sans-serif;
+  color: var(--news-ink);
+  overflow-x: clip;
+  background: var(--news-paper);
+  font-family: var(--nyt-text);
+}
+
+.portfolio-page--newsroom .portfolio-page__backdrop { display: none; }
+.portfolio-page--newsroom .portfolio-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-items: center;
+  min-height: 104px;
+  padding: 14px clamp(20px, 4vw, 54px) 0;
+  border-top: 4px double var(--news-ink);
+  border-bottom: 1px solid var(--news-ink);
+  background: rgba(247, 242, 232, 0.94);
+  backdrop-filter: blur(10px);
+}
+
+.portfolio-page--newsroom .portfolio-header__edition,
+.portfolio-page--newsroom .portfolio-header__date {
+  margin: 0;
+  color: var(--news-muted);
+  font-family: var(--nyt-meta);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.portfolio-page--newsroom .portfolio-header__date { text-align: right; }
+.portfolio-page--newsroom .portfolio-brand { display: block; color: inherit; text-align: center; }
+.portfolio-page--newsroom .portfolio-brand__text { display: block; }
+.portfolio-page--newsroom .portfolio-brand__text strong {
+  display: block;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: clamp(2.45rem, 4.2vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 0.95;
+  transform: scaleX(1.14);
+  transform-origin: center;
+}
+
+.portfolio-page--newsroom .portfolio-brand__text small {
+  display: block;
+  margin-top: 6px;
+  color: var(--news-muted);
+  font-family: var(--nyt-meta);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.portfolio-page--newsroom .portfolio-nav {
+  display: flex;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid var(--news-rule);
+}
+
+.portfolio-page--newsroom .portfolio-nav__item {
+  position: relative;
+  padding: 10px clamp(12px, 2vw, 28px);
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+.portfolio-page--newsroom .portfolio-nav__item:not(:last-child)::after {
+  content: '｜';
+  position: absolute;
+  right: -4px;
+  color: var(--news-red-soft);
+}
+
+.portfolio-page--newsroom .portfolio-nav__item:hover,
+.portfolio-page--newsroom .portfolio-nav__item--active { color: var(--news-red); }
+.portfolio-page--newsroom :focus-visible { outline: 2px solid var(--news-red); outline-offset: 3px; }
+
+.portfolio-page--newsroom .portfolio-main { width: min(1320px, calc(100% - 48px)); }
+.portfolio-page--newsroom .portfolio-main--cover { padding: 0; }
+.portfolio-page--newsroom .portfolio-home--editorial {
+  min-height: calc(100vh - 144px);
+  align-content: start;
+  gap: 0;
+}
+
+/* 首页 */
+.portfolio-page--newsroom .portfolio-hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px double var(--news-ink);
+  background: transparent;
+}
+
+.portfolio-page--newsroom .portfolio-hero::after {
+  content: 'AI 产品 · 内容系统 · 真实验证';
+  position: absolute;
+  top: 20px;
+  right: 0;
+  color: var(--news-red);
+  font-family: var(--nyt-meta);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.portfolio-page--newsroom .portfolio-hero__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(290px, 0.65fr);
+  gap: clamp(32px, 5vw, 68px);
+  min-height: 0;
+  padding: 54px 0 34px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.portfolio-page--newsroom .portfolio-hero__content::before,
+.portfolio-page--newsroom .portfolio-hero__content::after { display: none; }
+.portfolio-page--newsroom .portfolio-hero__lede {
+  align-self: start;
+  max-width: 850px;
+  padding: 0;
+  animation: none;
+}
+
+.portfolio-page--newsroom .portfolio-eyebrow {
+  color: var(--news-red);
+  font-family: var(--nyt-meta);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.portfolio-page--newsroom .portfolio-hero h1 {
+  margin: 12px 0 0;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: clamp(3.8rem, 6.3vw, 6.9rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 0.88;
+  transform: scaleX(1.12);
+  transform-origin: left center;
+}
+
+.portfolio-page--newsroom .portfolio-hero__identity {
+  margin: 14px 0 0;
+  color: var(--news-muted);
+  font-family: var(--nyt-meta);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+
+.portfolio-page--newsroom .portfolio-hero__summary-block {
+  max-width: 680px;
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--news-ink);
+}
+
+.portfolio-page--newsroom .portfolio-hero__summary-label {
+  margin: 0;
+  color: var(--news-red);
+  font-family: var(--nyt-meta);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.portfolio-page--newsroom .portfolio-hero h2 {
+  max-width: 680px;
+  margin: 8px 0 0;
+  padding-top: 0;
+  border-top: 0;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: clamp(2.15rem, 3.15vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -0.09em;
+  line-height: 1.12;
+}
+
+.portfolio-page--newsroom .portfolio-hero__summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  max-width: 720px;
+  margin-top: 16px;
+  color: var(--news-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.portfolio-page--newsroom .portfolio-hero__summary p { margin: 0; }
+.portfolio-page--newsroom .portfolio-hero__actions { gap: 0; margin-top: 18px; }
+.portfolio-page--newsroom .portfolio-hero__action {
+  min-height: 43px;
+  padding: 0 20px;
+  border-radius: 0;
+  border-color: var(--news-rule);
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: 13px;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.portfolio-page--newsroom .portfolio-hero__action--primary { border-color: var(--news-ink); background: var(--news-ink); color: #fffaf2; }
+.portfolio-page--newsroom .portfolio-hero__action--secondary { border-left: 0; }
+.portfolio-page--newsroom .portfolio-hero__action:hover { transform: none; background: var(--news-red); border-color: var(--news-red); color: #fffaf2; }
+
+.portfolio-page--newsroom .portfolio-hero__news-brief {
+  align-self: start;
+  margin-top: 30px;
+  padding: 16px 0 0 24px;
+  border-left: 1px solid var(--news-ink);
+}
+
+.portfolio-page--newsroom .portfolio-hero__archive-mark {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--news-rule);
+  color: var(--news-red);
+  font-family: var(--nyt-meta);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
+.portfolio-page--newsroom .portfolio-hero__archive-mark strong { color: var(--news-ink); font-weight: 600; }
+.portfolio-page--newsroom .portfolio-hero__brief-kicker { margin: 14px 0 5px; color: var(--news-red); font-family: var(--nyt-meta); font-size: 12px; font-weight: 700; }
+.portfolio-page--newsroom .portfolio-hero__brief-copy { margin: 0; color: var(--news-ink); font-family: var(--nyt-display); font-size: 20px; line-height: 1.48; }
+.portfolio-page--newsroom .portfolio-hero__archive-description { margin: 14px 0 0; color: var(--news-muted); font-family: var(--nyt-meta); font-size: 10px; line-height: 1.7; }
+
+.portfolio-page--newsroom .portfolio-hero__facts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 22px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--news-rule);
+}
+
+.portfolio-page--newsroom .portfolio-hero__facts > div,
+.portfolio-page--newsroom .portfolio-hero__facts > div:not(:first-child) {
+  min-height: auto;
+  padding: 11px 0;
+  border-right: 0;
+  border-bottom: 1px solid var(--news-rule-soft);
+}
+
+.portfolio-page--newsroom .portfolio-hero__facts dt { color: var(--news-red); font-family: var(--nyt-meta); font-size: 10px; }
+.portfolio-page--newsroom .portfolio-hero__facts dd { margin-top: 4px; color: var(--news-ink); font-size: 13px; }
+
+/* 首页能力与案例 */
+.portfolio-page--newsroom .portfolio-capability-rail {
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding: 42px 0 0;
+  border: 0;
+  border-bottom: 1px solid var(--news-ink);
+  background: transparent;
+}
+
+.portfolio-page--newsroom .portfolio-capability-rail__heading {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 2fr);
+  gap: 30px;
+  padding: 0 0 14px;
+  border-bottom: 4px double var(--news-ink);
+}
+
+.portfolio-page--newsroom .portfolio-capability-rail__heading p,
+.portfolio-page--newsroom .portfolio-capability-rail__meta > span,
+.portfolio-page--newsroom .portfolio-capability-rail__item small,
+.portfolio-page--newsroom .portfolio-capability-rail__item strong {
+  color: var(--news-red);
+  font-family: var(--nyt-meta);
+}
+
+.portfolio-page--newsroom .portfolio-capability-rail__heading h2 { margin: 0; color: var(--news-ink); font-family: var(--nyt-display); font-size: clamp(1.8rem, 2.4vw, 2.45rem); font-weight: 600; line-height: 1.16; }
+.portfolio-page--newsroom .portfolio-capability-rail__heading span { display: block; margin-top: 7px; color: var(--news-muted); font-family: var(--nyt-text); font-size: 15px; line-height: 1.7; }
+.portfolio-page--newsroom .portfolio-capability-rail__list { grid-template-columns: repeat(3, 1fr); }
+.portfolio-page--newsroom .portfolio-capability-rail__item,
+.portfolio-page--newsroom .portfolio-capability-rail__item:first-child {
+  min-height: 0;
+  padding: 22px 28px 24px;
+  border-left: 1px solid var(--news-rule);
+  background: transparent;
+}
+.portfolio-page--newsroom .portfolio-capability-rail__item:first-child { border-left: 0; padding-left: 0; }
+.portfolio-page--newsroom .portfolio-capability-rail__item h2 { color: var(--news-ink); font-family: var(--nyt-display); font-size: 1.8rem; font-weight: 600; }
+.portfolio-page--newsroom .portfolio-capability-rail__item p { color: var(--news-muted); line-height: 1.85; }
+
+.portfolio-page--newsroom .portfolio-featured-project {
+  display: block;
+  margin: 42px 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.portfolio-page--newsroom .portfolio-featured-project__section-heading {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 2fr);
+  gap: 30px;
+  margin-bottom: 16px;
+  padding: 0 0 14px;
+  border-bottom: 4px double var(--news-ink);
+}
+
+.portfolio-page--newsroom .portfolio-featured-project__section-heading > p {
+  margin: 0;
+  color: var(--news-red);
+  font-family: var(--nyt-meta);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.portfolio-page--newsroom .portfolio-featured-project__section-heading h2 {
+  margin: 0;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: clamp(1.8rem, 2.4vw, 2.45rem);
+  font-weight: 600;
+  line-height: 1.16;
+}
+
+.portfolio-page--newsroom .portfolio-featured-project__section-heading span {
+  grid-column: 2;
+  margin-top: -3px;
+  color: var(--news-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.portfolio-page--newsroom .portfolio-featured-project__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(340px, 0.82fr);
+  gap: 0;
+  border: 1px solid var(--news-ink);
+  border-radius: 0;
+  background: var(--news-white);
+  box-shadow: none;
+}
+
+.portfolio-page--newsroom .portfolio-featured-project__cover { min-height: 470px; overflow: hidden; background: #1f2430; }
+.portfolio-page--newsroom .portfolio-featured-project__cover::after { background: linear-gradient(180deg, transparent 50%, rgba(18, 17, 16, 0.82)); pointer-events: none; }
+.portfolio-page--newsroom .portfolio-featured-project__live-cover { position: absolute; inset: 0; display: grid; place-items: center; color: inherit; text-decoration: none; background: #f7f1e7; }
+.portfolio-page--newsroom .portfolio-featured-project__live-cover img { width: 100%; height: 100%; object-fit: contain; object-position: center; background: #f7f1e7; }
+.portfolio-page--newsroom .portfolio-featured-project__live-cover > span { position: absolute; top: 22px; right: 22px; z-index: 2; padding: 8px 11px; border: 1px solid rgba(255,255,255,.7); background: rgba(22, 24, 31, .62); color: #fffaf2; font-family: var(--nyt-meta); font-size: 11px; font-weight: 600; letter-spacing: .04em; }
+.portfolio-page--newsroom .portfolio-featured-project__live-cover:hover img { transform: scale(1.02); }
+.portfolio-page--newsroom .portfolio-featured-project__carousel { position: absolute; z-index: 3; top: 22px; left: 22px; display: flex; gap: 6px; }
+.portfolio-page--newsroom .portfolio-featured-project__carousel button { width: 32px; height: 28px; padding: 0; border: 1px solid rgba(31, 36, 48, .25); border-radius: 0; background: rgba(255, 253, 248, .82); color: rgba(31, 36, 48, .66); font-family: var(--nyt-meta); font-size: 10px; cursor: pointer; }
+.portfolio-page--newsroom .portfolio-featured-project__carousel button.is-active { border-color: var(--news-red); background: var(--news-red); color: #fffaf2; }
+.portfolio-page--newsroom .portfolio-featured-project__visual {
+  position: absolute;
+  inset: 48px 40px 96px;
+  display: grid;
+  grid-template-columns: 1fr 24px 1fr 24px 1fr 24px 1fr;
+  align-items: center;
+  padding: 36px 26px;
+  border: 1px solid rgba(255,255,255,.68);
+  background: linear-gradient(145deg, #f4eee1, #ddd3c1);
+  color: #1b202a;
+  box-shadow: inset 0 0 0 8px rgba(255,255,255,.26);
+}
+
+.portfolio-page--newsroom .portfolio-featured-project__visual span {
+  display: grid;
+  aspect-ratio: 1 / 1;
+  place-items: center;
+  padding: 12px;
+  border: 1px solid rgba(27, 32, 42, .42);
+  background: rgba(255,255,255,.54);
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(13px, 1.5vw, 19px);
+  text-align: center;
+}
+
+.portfolio-page--newsroom .portfolio-featured-project__visual i { color: var(--news-red); font-size: 20px; font-style: normal; text-align: center; }
+.portfolio-page--newsroom .portfolio-featured-project__cover-caption { right: 32px; bottom: 28px; left: 32px; }
+.portfolio-page--newsroom .portfolio-featured-project__cover-caption span { color: #e7cfad; font-family: 'IBM Plex Mono', monospace; }
+.portfolio-page--newsroom .portfolio-featured-project__cover-caption strong { font-family: 'Noto Serif SC', serif; font-size: 17px; font-weight: 500; }
+
+.portfolio-page--newsroom .portfolio-featured-project__content { align-content: stretch; gap: 0; padding: 42px 36px; }
+.portfolio-page--newsroom .portfolio-featured-project__intro { padding-bottom: 24px; border-bottom: 1px solid var(--news-rule); }
+.portfolio-page--newsroom .portfolio-featured-project__intro .portfolio-eyebrow,
+.portfolio-page--newsroom .portfolio-featured-project__evidence dt { color: var(--news-red); }
+.portfolio-page--newsroom .portfolio-featured-project__intro h2 { color: var(--news-ink); font-family: 'Noto Serif SC', serif; font-size: clamp(3.2rem, 4vw, 5rem); font-weight: 600; letter-spacing: -0.1em; }
+.portfolio-page--newsroom .portfolio-featured-project__intro h3 { color: var(--news-red); }
+.portfolio-page--newsroom .portfolio-featured-project__summary,
+.portfolio-page--newsroom .portfolio-featured-project__evidence dd,
+.portfolio-page--newsroom .portfolio-featured-project .portfolio-bullets { color: var(--news-muted); }
+.portfolio-page--newsroom .portfolio-featured-project__evidence,
+.portfolio-page--newsroom .portfolio-featured-project__evidence > div { border-color: var(--news-rule-soft); }
+.portfolio-page--newsroom .portfolio-featured-project__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 18px;
+  border-top: 1px solid var(--news-rule-soft);
+  border-bottom: 1px solid var(--news-rule-soft);
+}
+.portfolio-page--newsroom .portfolio-featured-project__metrics > div { padding: 12px 10px 12px 0; }
+.portfolio-page--newsroom .portfolio-featured-project__metrics > div + div { padding-left: 12px; border-left: 1px solid var(--news-rule-soft); }
+.portfolio-page--newsroom .portfolio-featured-project__metrics span,
+.portfolio-page--newsroom .portfolio-featured-project__metrics p { display: block; margin: 0; color: var(--news-muted); font-family: var(--nyt-meta); font-size: 10px; line-height: 1.45; }
+.portfolio-page--newsroom .portfolio-featured-project__metrics strong { display: block; margin-top: 4px; color: var(--news-ink); font-family: var(--nyt-display); font-size: 1rem; font-weight: 600; line-height: 1.2; }
+.portfolio-page--newsroom .portfolio-featured-project__metrics p { grid-column: 1 / -1; padding: 0 0 10px; }
+.portfolio-page--newsroom .portfolio-featured-project__footer { margin-top: auto; }
+.portfolio-page--newsroom .portfolio-featured-project__link { color: var(--news-ink); border-color: var(--news-ink); }
+.portfolio-page--newsroom .portfolio-featured-project__link--live { color: var(--news-red); border-color: var(--news-red); }
+
+/* 第二案例：用可体验 demo 和清晰职责说明承接内部项目。 */
+.portfolio-page--newsroom .portfolio-lyncia-case { padding: 54px 0 0; border-bottom: 1px solid var(--news-ink); }
+.portfolio-page--newsroom .portfolio-lyncia-case__heading { display: grid; grid-template-columns: minmax(130px, .28fr) minmax(0, 1fr); gap: 8px 28px; padding-bottom: 22px; border-bottom: 1px solid var(--news-ink); }
+.portfolio-page--newsroom .portfolio-lyncia-case__heading p { grid-row: span 2; margin: 4px 0 0; color: var(--news-red); font-family: var(--nyt-meta); font-size: 11px; font-weight: 700; letter-spacing: .1em; }
+.portfolio-page--newsroom .portfolio-lyncia-case__heading h2 { margin: 0; color: var(--news-ink); font-family: var(--nyt-display); font-size: clamp(1.8rem, 2.4vw, 2.45rem); font-weight: 600; line-height: 1.16; }
+.portfolio-page--newsroom .portfolio-lyncia-case__heading span { color: var(--news-muted); font-size: 15px; line-height: 1.7; }
+.portfolio-page--newsroom .portfolio-lyncia-case__card { display: grid; grid-template-columns: minmax(0, 1.24fr) minmax(330px, .76fr); border: 1px solid var(--news-ink); border-bottom: 0; background: var(--news-white); }
+.portfolio-page--newsroom .portfolio-lyncia-case__visual { position: relative; min-height: 440px; margin: 0; overflow: hidden; background: #ab9071; }
+.portfolio-page--newsroom .portfolio-lyncia-case__visual::after { position: absolute; inset: 55% 0 0; content: ''; background: linear-gradient(180deg, transparent, rgba(18, 17, 16, .72)); pointer-events: none; }
+.portfolio-page--newsroom .portfolio-lyncia-case__visual img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.portfolio-page--newsroom .portfolio-lyncia-case__visual figcaption { position: absolute; z-index: 1; right: 24px; bottom: 22px; left: 24px; color: #fffaf2; font-family: var(--nyt-meta); font-size: 12px; line-height: 1.55; }
+.portfolio-page--newsroom .portfolio-lyncia-case__content { display: flex; flex-direction: column; padding: 32px; }
+.portfolio-page--newsroom .portfolio-lyncia-case__content dl { margin: 0; }
+.portfolio-page--newsroom .portfolio-lyncia-case__content dl > div { padding: 0 0 16px; border-bottom: 1px solid var(--news-rule-soft); }
+.portfolio-page--newsroom .portfolio-lyncia-case__content dl > div + div { padding-top: 16px; }
+.portfolio-page--newsroom .portfolio-lyncia-case__content dt { color: var(--news-red); font-family: var(--nyt-meta); font-size: 11px; font-weight: 700; }
+.portfolio-page--newsroom .portfolio-lyncia-case__content dd { margin: 7px 0 0; color: var(--news-muted); font-size: 14px; line-height: 1.75; }
+.portfolio-page--newsroom .portfolio-lyncia-case__metrics { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: auto; padding-top: 20px; }
+.portfolio-page--newsroom .portfolio-lyncia-case__metrics > div + div { padding-left: 12px; border-left: 1px solid var(--news-rule-soft); }
+.portfolio-page--newsroom .portfolio-lyncia-case__metrics strong { display: block; color: var(--news-ink); font-family: var(--nyt-display); font-size: 1.2rem; font-weight: 600; }
+.portfolio-page--newsroom .portfolio-lyncia-case__metrics span { display: block; margin-top: 4px; color: var(--news-muted); font-family: var(--nyt-meta); font-size: 10px; line-height: 1.4; }
+
+/* 评测集建设心得 */
+.portfolio-page--newsroom .portfolio-product-notes { padding: 48px 0 0; border-bottom: 4px double var(--news-ink); }
+.portfolio-page--newsroom .portfolio-product-notes__mast { max-width: 1000px; padding-bottom: 24px; border-bottom: 1px solid var(--news-ink); }
+.portfolio-page--newsroom .portfolio-product-notes__mast > p:first-child { margin: 0; color: var(--news-red); font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .12em; }
+.portfolio-page--newsroom .portfolio-product-notes__mast h2 { margin: 10px 0; color: var(--news-ink); font-family: var(--nyt-display); font-size: clamp(2.35rem, 4.1vw, 4.7rem); font-weight: 600; letter-spacing: -.1em; line-height: 1.14; }
+.portfolio-page--newsroom .portfolio-product-notes__intro { max-width: 56rem; margin: 0; color: var(--news-muted); font-size: 16px; line-height: 1.9; }
+.portfolio-page--newsroom .portfolio-product-notes__body { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(260px, .55fr); gap: 48px; }
+.portfolio-page--newsroom .portfolio-product-notes__steps { margin: 0; padding: 0; list-style: none; }
+.portfolio-page--newsroom .portfolio-product-notes__steps li { display: grid; grid-template-columns: 82px 1fr; gap: 24px; padding: 25px 0; border-bottom: 1px dotted var(--news-rule); }
+.portfolio-page--newsroom .portfolio-product-notes__steps li > span { color: var(--news-red); font-family: 'Noto Serif SC', serif; font-size: 2rem; line-height: 1; }
+.portfolio-page--newsroom .portfolio-product-notes__steps h3 { margin: 0 0 8px; font-family: 'Noto Serif SC', serif; font-size: 1.65rem; font-weight: 600; }
+.portfolio-page--newsroom .portfolio-product-notes__steps p { margin: 0; color: var(--news-muted); line-height: 1.85; }
+.portfolio-page--newsroom .portfolio-product-notes__sidebar { margin: 0; padding: 28px 0 0 26px; border-left: 1px solid var(--news-rule); }
+.portfolio-page--newsroom .portfolio-product-notes__sidebar > p { margin: 0; color: var(--news-ink); font-size: 20px; line-height: 1.6; }
+.portfolio-page--newsroom .portfolio-product-notes__sidebar dl { margin: 28px 0 0; padding-top: 16px; border-top: 1px solid var(--news-rule); }
+.portfolio-page--newsroom .portfolio-product-notes__sidebar dl > div { padding: 12px 0; border-bottom: 1px solid var(--news-rule-soft); }
+.portfolio-page--newsroom .portfolio-product-notes__sidebar dt { color: var(--news-red); font-family: 'IBM Plex Mono', monospace; font-size: 10px; }
+.portfolio-page--newsroom .portfolio-product-notes__sidebar dd { margin: 5px 0 0; color: var(--news-muted); font-size: 13px; line-height: 1.7; }
+
+.portfolio-page--newsroom .portfolio-timeline-overview { margin: 0; padding: 48px 0; border: 0; border-bottom: 1px solid var(--news-ink); border-radius: 0; background: transparent; box-shadow: none; }
+.portfolio-page--newsroom .portfolio-profile-card__label { color: var(--news-red); font-family: 'IBM Plex Mono', monospace; }
+.portfolio-page--newsroom .portfolio-timeline-overview__line { background: var(--news-rule); }
+.portfolio-page--newsroom .portfolio-timeline-overview__item { color: var(--news-ink); }
+.portfolio-page--newsroom .portfolio-timeline-overview__item:hover { background: transparent; }
+.portfolio-page--newsroom .portfolio-timeline-overview__item:hover strong,
+.portfolio-page--newsroom .portfolio-timeline-overview__item--active strong { color: var(--news-red); }
+.portfolio-page--newsroom .portfolio-timeline-overview__period,
+.portfolio-page--newsroom .portfolio-timeline-overview__detail-card p,
+.portfolio-page--newsroom .portfolio-timeline-overview__detail-list { color: var(--news-muted); }
+.portfolio-page--newsroom .portfolio-timeline-overview__dot { background: var(--news-paper); border-color: var(--news-red); box-shadow: 0 0 0 5px var(--news-paper); }
+.portfolio-page--newsroom .portfolio-timeline-overview__detail-card,
+.portfolio-page--newsroom .portfolio-timeline-overview__detail-card--idle,
+.portfolio-page--newsroom .portfolio-timeline-overview__detail-card--active { border-color: var(--news-ink); border-radius: 0; background: var(--news-white); box-shadow: none; }
+
+.portfolio-page--newsroom .portfolio-contact-brief { grid-template-columns: minmax(0,.9fr) minmax(280px,1fr) minmax(210px,.6fr); gap: 34px; margin: 0; padding: 44px 0; border: 0; border-bottom: 4px double var(--news-ink); border-radius: 0; background: transparent; box-shadow: none; }
+.portfolio-page--newsroom .portfolio-contact-brief .portfolio-eyebrow { color: var(--news-red); }
+.portfolio-page--newsroom .portfolio-contact-brief__intro,
+.portfolio-page--newsroom .portfolio-contact-brief__item,
+.portfolio-page--newsroom .portfolio-contact-brief__item span,
+.portfolio-page--newsroom .portfolio-contact-brief__item strong { color: var(--news-muted); }
+.portfolio-page--newsroom .portfolio-contact-brief__primary { border-radius: 0; background: var(--news-ink); color: #fffaf2; }
+.portfolio-page--newsroom .portfolio-contact-brief__primary:hover { background: var(--news-red); }
+
+/* 子页：项目、经历、方法保持纵向阅读节奏。 */
+.portfolio-page--newsroom .portfolio-section { padding-top: 54px; }
+.portfolio-page--newsroom .portfolio-page__toolbar { margin: 22px 0 42px; }
+.portfolio-page--newsroom .portfolio-back-link { color: var(--news-muted); font-family: 'IBM Plex Mono', monospace; font-size: 10px; }
+.portfolio-page--newsroom .portfolio-section__heading { padding: 0 0 22px; border-left: 0; border-bottom: 1px solid var(--news-ink); }
+.portfolio-page--newsroom .portfolio-section__heading p { color: var(--news-red); font-family: 'IBM Plex Mono', monospace; }
+.portfolio-page--newsroom .portfolio-section__heading h2 { color: var(--news-ink); font-family: var(--nyt-display); font-size: clamp(2.6rem, 4.3vw, 4.8rem); font-weight: 600; letter-spacing: -.1em; line-height: 1.15; }
+.portfolio-page--newsroom .portfolio-section__heading small { display: block; max-width: 62ch; margin-top: 16px; color: var(--news-muted); font-family: var(--nyt-meta); font-size: 11px; letter-spacing: .02em; line-height: 1.7; }
+.portfolio-page--newsroom .portfolio-panel { border-radius: 0; box-shadow: none; }
+
+.portfolio-page--newsroom .portfolio-work-grid,
+.portfolio-page--newsroom .portfolio-case-list { gap: 0; border: 0; background: transparent; }
+.portfolio-page--newsroom .portfolio-work-card { display: grid; grid-template-columns: minmax(220px,.6fr) minmax(0,1.4fr); gap: 0; padding: 28px 0; border: 0; border-bottom: 1px solid var(--news-rule); background: transparent; }
+.portfolio-page--newsroom .portfolio-work-card__top { padding-right: 26px; }
+.portfolio-page--newsroom .portfolio-work-card__record { grid-template-columns: repeat(3,1fr); gap: 22px; padding-left: 28px; border-left: 1px solid var(--news-rule); }
+.portfolio-page--newsroom .portfolio-work-card__footer { grid-column: 2; margin-top: 20px; padding-left: 28px; border-left: 1px solid var(--news-rule); }
+.portfolio-page--newsroom .portfolio-work-card__index,
+.portfolio-page--newsroom .portfolio-work-card__record span,
+.portfolio-page--newsroom .portfolio-case-card__index,
+.portfolio-page--newsroom .portfolio-case-card__body span { color: var(--news-red); }
+.portfolio-page--newsroom .portfolio-work-card h3,
+.portfolio-page--newsroom .portfolio-case-card__intro h3 { color: var(--news-ink); font-family: 'Noto Serif SC', serif; font-size: 2rem; font-weight: 600; }
+.portfolio-page--newsroom .portfolio-work-card__link { color: var(--news-ink); border-color: var(--news-ink); }
+.portfolio-page--newsroom .portfolio-case-card { margin: 0; padding: 34px 0; border: 0; border-bottom: 1px solid var(--news-rule); background: transparent; }
+
+.portfolio-page--newsroom .portfolio-method-grid { gap: 0; border: 0; background: transparent; }
+.portfolio-page--newsroom .portfolio-method-card { display: grid; grid-template-columns: 180px 1fr; min-height: 0; padding: 28px 0; border: 0; border-bottom: 1px solid var(--news-rule); background: transparent; }
+.portfolio-page--newsroom .portfolio-method-card__badge { align-self: start; padding: 0; border-radius: 0; background: transparent; color: var(--news-red); font-family: 'IBM Plex Mono', monospace; }
+.portfolio-page--newsroom .portfolio-method-card h3 { margin: 0; color: var(--news-ink); font-family: 'Noto Serif SC', serif; font-size: 2.2rem; font-weight: 600; }
+.portfolio-page--newsroom .portfolio-method-card p { grid-column: 2; max-width: 60rem; color: var(--news-muted); line-height: 1.9; }
+
+.portfolio-page--newsroom .portfolio-experience-group { margin-top: 60px; }
+.portfolio-page--newsroom .portfolio-experience-group__heading { display: grid; grid-template-columns: 180px 1fr; gap: 18px; padding-bottom: 16px; border-bottom: 4px double var(--news-ink); }
+.portfolio-page--newsroom .portfolio-experience-group__heading p { margin: 0; color: var(--news-red); font-family: var(--nyt-meta); font-size: 11px; font-weight: 700; letter-spacing: .1em; }
+.portfolio-page--newsroom .portfolio-experience-group__heading h3 { margin: 0; color: var(--news-ink); font-family: var(--nyt-display); font-size: clamp(1.65rem, 2.3vw, 2.35rem); font-weight: 600; line-height: 1.2; }
+
+/* 项目页：固定为左侧真实界面、右侧项目说明，避免网格压缩文字。 */
+.portfolio-page--newsroom .portfolio-project-list { display: grid; gap: 0; margin-top: 30px; border-top: 1px solid var(--news-ink); }
+.portfolio-page--newsroom .portfolio-project-card { display: grid; grid-template-columns: minmax(0, .96fr) minmax(360px, 1fr); gap: 0; padding: 34px 0; border-bottom: 1px solid var(--news-rule); }
+.portfolio-page--newsroom .portfolio-project-card__media { position: relative; align-self: start; min-height: 0; aspect-ratio: 16 / 9; margin: 0; overflow: hidden; border: 1px solid var(--news-rule); background: #20242d; }
+.portfolio-page--newsroom .portfolio-project-card__media--portrait { aspect-ratio: 4 / 5; }
+.portfolio-page--newsroom .portfolio-project-card__media--wide { aspect-ratio: 2 / 1; }
+.portfolio-page--newsroom .portfolio-project-card__media--phone { width: min(100%, 240px); aspect-ratio: 9 / 20; justify-self: center; border-radius: 14px; box-shadow: 0 16px 30px rgba(30,27,24,.16); }
+.portfolio-page--newsroom .portfolio-project-card__media > a,
+.portfolio-page--newsroom .portfolio-project-card__media-static { position: absolute; inset: 0; display: block; color: inherit; text-decoration: none; }
+.portfolio-page--newsroom .portfolio-project-card__media img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; background: #f7f1e7; transition: transform 220ms ease; }
+.portfolio-page--newsroom .portfolio-project-card__media > a:hover img { transform: scale(1.015); }
+.portfolio-page--newsroom .portfolio-project-card__media > a > span,
+.portfolio-page--newsroom .portfolio-project-card__media-static > span { position: absolute; top: 18px; right: 18px; padding: 8px 10px; border: 1px solid rgba(255,255,255,.7); background: rgba(24,25,29,.7); color: #fffdf8; font-family: var(--nyt-meta); font-size: 11px; }
+.portfolio-page--newsroom .portfolio-project-card__media figcaption { position: absolute; right: 18px; bottom: 16px; left: 18px; z-index: 2; color: #fffaf2; font-family: var(--nyt-meta); font-size: 11px; letter-spacing: .04em; text-shadow: 0 1px 8px rgba(0,0,0,.65); }
+.portfolio-page--newsroom .portfolio-project-card__asset-pending { position: absolute; inset: 0; display: grid; align-content: center; gap: 12px; padding: 44px; background: repeating-linear-gradient(135deg, rgba(255,253,248,.06) 0 1px, transparent 1px 10px), #2a2b2d; color: #fffaf2; }
+.portfolio-page--newsroom .portfolio-project-card__asset-pending span { color: #e7cfad; font-family: var(--nyt-meta); font-size: 11px; font-weight: 700; letter-spacing: .1em; }
+.portfolio-page--newsroom .portfolio-project-card__asset-pending p { max-width: 24ch; margin: 0; color: rgba(255,250,242,.75); font-family: var(--nyt-display); font-size: 1.35rem; line-height: 1.4; }
+.portfolio-page--newsroom .portfolio-project-card__content { display: grid; align-content: start; gap: 24px; padding: 8px 0 8px 38px; }
+.portfolio-page--newsroom .portfolio-project-card__title { padding-bottom: 20px; border-bottom: 1px solid var(--news-rule); }
+.portfolio-page--newsroom .portfolio-project-card__title p,
+.portfolio-page--newsroom .portfolio-project-card__details dt,
+.portfolio-page--newsroom .portfolio-project-card__evidence > p { margin: 0; color: var(--news-red); font-family: var(--nyt-meta); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.portfolio-page--newsroom .portfolio-project-card__title h3 { margin: 8px 0 4px; color: var(--news-ink); font-family: var(--nyt-display); font-size: clamp(2rem, 3vw, 3.25rem); font-weight: 600; letter-spacing: -.07em; line-height: 1.04; }
+.portfolio-page--newsroom .portfolio-project-card__title span { color: var(--news-muted); font-family: var(--nyt-display); font-size: 1rem; }
+.portfolio-page--newsroom .portfolio-project-card__details { display: grid; gap: 16px; margin: 0; }
+.portfolio-page--newsroom .portfolio-project-card__details div { display: grid; grid-template-columns: 100px 1fr; gap: 16px; }
+.portfolio-page--newsroom .portfolio-project-card__details dd { margin: 0; color: var(--news-muted); font-size: 14px; line-height: 1.75; }
+.portfolio-page--newsroom .portfolio-project-card__evidence { padding-top: 18px; border-top: 1px solid var(--news-rule-soft); }
+.portfolio-page--newsroom .portfolio-project-card__evidence .portfolio-bullets { margin-top: 12px; }
+.portfolio-page--newsroom .portfolio-project-card__footer { display: grid; gap: 18px; padding-top: 18px; border-top: 1px solid var(--news-rule-soft); }
+.portfolio-page--newsroom .portfolio-project-card__link { justify-self: start; padding-bottom: 4px; color: var(--news-ink); border-bottom: 1px solid var(--news-ink); font-family: var(--nyt-display); text-decoration: none; }
+.portfolio-page--newsroom .portfolio-project-card__link:hover { color: var(--news-red); border-color: var(--news-red); }
+.portfolio-page--newsroom .portfolio-project-card__link--disabled { color: var(--news-muted); border-color: var(--news-rule); cursor: default; }
+
+.portfolio-page--newsroom .portfolio-timeline { gap: 0; border-top: 1px solid var(--news-ink); }
+.portfolio-page--newsroom .portfolio-timeline__item { display: grid; grid-template-columns: minmax(260px,.7fr) minmax(0,1.3fr); gap: 0; margin: 0; padding: 0; border: 0; border-bottom: 1px dotted var(--news-rule); background: transparent; }
+.portfolio-page--newsroom .portfolio-timeline__meta { min-height: 182px; padding: 28px 30px 28px 0; border-right: 1px solid var(--news-rule); background: transparent; }
+.portfolio-page--newsroom .portfolio-timeline__meta span,
+.portfolio-page--newsroom .portfolio-timeline__meta small { color: var(--news-red); font-family: 'IBM Plex Mono', monospace; }
+.portfolio-page--newsroom .portfolio-timeline__meta strong { margin: 16px 0 8px; color: var(--news-ink); font-family: 'Noto Serif SC', serif; font-size: 2rem; font-weight: 600; }
+.portfolio-page--newsroom .portfolio-timeline__content { padding: 28px 0 28px 34px; }
+.portfolio-page--newsroom .portfolio-timeline__content p,
+.portfolio-page--newsroom .portfolio-timeline__content .portfolio-bullets { color: var(--news-muted); }
+
+@keyframes newsroom-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 900px) {
+  .portfolio-page--newsroom .portfolio-hero__content,
+  .portfolio-page--newsroom .portfolio-product-notes__body,
+  .portfolio-page--newsroom .portfolio-featured-project__card,
+  .portfolio-page--newsroom .portfolio-lyncia-case__card,
+  .portfolio-page--newsroom .portfolio-contact-brief { grid-template-columns: 1fr; }
+  .portfolio-page--newsroom .portfolio-hero__news-brief { margin-top: 0; padding: 28px 0; border-left: 0; border-top: 1px solid var(--news-ink); }
+  .portfolio-page--newsroom .portfolio-hero__facts { grid-template-columns: 1fr 1fr; }
+  .portfolio-page--newsroom .portfolio-hero__facts > div { padding-right: 16px; }
+  .portfolio-page--newsroom .portfolio-capability-rail__list { grid-template-columns: 1fr; }
+  .portfolio-page--newsroom .portfolio-capability-rail__item,
+  .portfolio-page--newsroom .portfolio-capability-rail__item:first-child { min-height: 0; padding: 24px 0; border-left: 0; border-top: 1px solid var(--news-rule-soft); }
+  .portfolio-page--newsroom .portfolio-product-notes__sidebar { padding: 26px 0; border-left: 0; border-top: 1px solid var(--news-rule); }
+  .portfolio-page--newsroom .portfolio-featured-project__cover { min-height: 420px; }
+  .portfolio-page--newsroom .portfolio-featured-project__section-heading { grid-template-columns: 1fr; gap: 8px; }
+  .portfolio-page--newsroom .portfolio-featured-project__section-heading span { grid-column: auto; margin-top: 0; }
+  .portfolio-page--newsroom .portfolio-lyncia-case__visual { min-height: 380px; }
+  .portfolio-page--newsroom .portfolio-lyncia-case__heading { grid-template-columns: 1fr; gap: 8px; }
+  .portfolio-page--newsroom .portfolio-lyncia-case__heading p { grid-row: auto; margin-top: 0; }
+}
+
+@media (max-width: 640px) {
+  .portfolio-page--newsroom .portfolio-main { width: min(100% - 30px, 1320px); }
+  .portfolio-page--newsroom .portfolio-header { grid-template-columns: 1fr auto; min-height: 0; padding: 12px 16px 0; }
+  .portfolio-page--newsroom .portfolio-header__edition { display: none; }
+  .portfolio-page--newsroom .portfolio-brand { text-align: left; }
+  .portfolio-page--newsroom .portfolio-brand__text strong { font-size: 2.1rem; }
+  .portfolio-page--newsroom .portfolio-header__date { font-size: 8px; }
+  .portfolio-page--newsroom .portfolio-nav { justify-content: flex-start; overflow-x: auto; }
+  .portfolio-page--newsroom .portfolio-nav__item { flex: 0 0 auto; padding: 9px 10px; font-size: 12px; }
+  .portfolio-page--newsroom .portfolio-hero__content { min-height: 0; padding: 58px 0 20px; }
+  .portfolio-page--newsroom .portfolio-hero h1 { font-size: clamp(4.5rem, 24vw, 7rem); }
+  .portfolio-page--newsroom .portfolio-hero__identity { font-size: 12px; line-height: 1.6; }
+  .portfolio-page--newsroom .portfolio-hero__summary-block { margin-top: 22px; }
+  .portfolio-page--newsroom .portfolio-hero h2 { font-size: clamp(2.15rem, 10vw, 3.3rem); }
+  .portfolio-page--newsroom .portfolio-hero__summary { grid-template-columns: 1fr; gap: 8px; }
+  .portfolio-page--newsroom .portfolio-hero__facts { grid-template-columns: 1fr; }
+  .portfolio-page--newsroom .portfolio-capability-rail__heading { grid-template-columns: 1fr; gap: 10px; }
+  .portfolio-page--newsroom .portfolio-featured-project__cover { min-height: 320px; }
+  .portfolio-page--newsroom .portfolio-lyncia-case { padding-top: 38px; }
+  .portfolio-page--newsroom .portfolio-lyncia-case__visual { min-height: 250px; }
+  .portfolio-page--newsroom .portfolio-lyncia-case__content { padding: 24px 20px; }
+  .portfolio-page--newsroom .portfolio-lyncia-case__visual figcaption { right: 18px; bottom: 16px; left: 18px; font-size: 11px; }
+  .portfolio-page--newsroom .portfolio-featured-project__metrics { grid-template-columns: 1fr; }
+  .portfolio-page--newsroom .portfolio-featured-project__metrics > div,
+  .portfolio-page--newsroom .portfolio-featured-project__metrics > div + div { padding: 10px 0; border-left: 0; border-bottom: 1px solid var(--news-rule-soft); }
+  .portfolio-page--newsroom .portfolio-featured-project__metrics > div:last-of-type { border-bottom: 0; }
+  .portfolio-page--newsroom .portfolio-featured-project__carousel { top: 14px; left: 14px; }
+  .portfolio-page--newsroom .portfolio-featured-project__live-cover > span { top: 14px; right: 14px; }
+  .portfolio-page--newsroom .portfolio-featured-project__visual { inset: 42px 22px 90px; grid-template-columns: 1fr 16px 1fr; grid-template-rows: 1fr 22px 1fr; padding: 18px; }
+  .portfolio-page--newsroom .portfolio-featured-project__visual i:nth-of-type(2) { display: none; }
+  .portfolio-page--newsroom .portfolio-featured-project__visual span:nth-of-type(3) { grid-column: 1; grid-row: 3; }
+  .portfolio-page--newsroom .portfolio-featured-project__visual span:nth-of-type(4) { grid-column: 3; grid-row: 3; }
+  .portfolio-page--newsroom .portfolio-featured-project__content { padding: 30px 22px; }
+  .portfolio-page--newsroom .portfolio-product-notes__steps li { grid-template-columns: 54px 1fr; gap: 14px; }
+  .portfolio-page--newsroom .portfolio-work-card,
+  .portfolio-page--newsroom .portfolio-timeline__item { grid-template-columns: 1fr; }
+  .portfolio-page--newsroom .portfolio-work-card__record,
+  .portfolio-page--newsroom .portfolio-work-card__footer,
+  .portfolio-page--newsroom .portfolio-timeline__content { padding-left: 0; border-left: 0; }
+  .portfolio-page--newsroom .portfolio-work-card__record { grid-template-columns: 1fr; }
+  .portfolio-page--newsroom .portfolio-timeline__meta { min-height: 0; border-right: 0; border-bottom: 1px solid var(--news-rule); }
+  .portfolio-page--newsroom .portfolio-method-card { grid-template-columns: 1fr; }
+  .portfolio-page--newsroom .portfolio-method-card p { grid-column: auto; }
+  .portfolio-page--newsroom .portfolio-experience-group__heading,
+  .portfolio-page--newsroom .portfolio-project-card { grid-template-columns: 1fr; }
+  .portfolio-page--newsroom .portfolio-project-card { gap: 24px; }
+  .portfolio-page--newsroom .portfolio-project-card__content { padding: 0; }
+  .portfolio-page--newsroom .portfolio-project-card__media { min-height: 0; }
+  .portfolio-page--newsroom .portfolio-project-card__details div { grid-template-columns: 1fr; gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-page--newsroom *,
+  .portfolio-page--newsroom *::before,
+  .portfolio-page--newsroom *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

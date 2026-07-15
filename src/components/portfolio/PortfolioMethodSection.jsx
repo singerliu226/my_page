@@ -17,7 +17,7 @@ function PortfolioMethodSection({ methods }) {
   return (
     <section id="method" className="portfolio-section">
       <div className="portfolio-section__heading">
-        <p>Working Method</p>
+        <p>工作方法</p>
         <h2>我如何把一个模糊问题推进成可交付产品</h2>
       </div>
 

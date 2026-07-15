@@ -16,16 +16,17 @@ function PortfolioCaseStudiesSection({ caseStudies }) {
   return (
     <section id="cases" className="portfolio-section">
       <div className="portfolio-section__heading">
-        <p>Case Studies</p>
+        <p>编辑手记</p>
         <h2>真正能说明问题的，不是我会哪些工具，而是我如何做关键决策</h2>
       </div>
 
       <div className="portfolio-case-list">
-        {caseStudies.map((caseStudy) => (
+        {caseStudies.map((caseStudy, index) => (
           <article key={caseStudy.title} className="portfolio-panel portfolio-case-card">
             <div className="portfolio-case-card__intro">
-              <p>{caseStudy.hook}</p>
+              <span className="portfolio-case-card__index">Case File {String(index + 1).padStart(2, '0')}</span>
               <h3>{caseStudy.title}</h3>
+              <p>{caseStudy.hook}</p>
             </div>
 
             <div className="portfolio-case-card__body">

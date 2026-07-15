@@ -17,13 +17,15 @@ import { Link, NavLink } from 'react-router-dom';
 function PortfolioHeader({ navItems = [] }) {
   return (
     <header className="portfolio-header">
+      <p className="portfolio-header__edition">个人作品集 · 2026</p>
       <Link className="portfolio-brand" to="/">
-        <span className="portfolio-brand__mark">LC</span>
         <span className="portfolio-brand__text">
           <strong>刘唱</strong>
-          <small>AI Product Portfolio</small>
+          <small>AI PRODUCT PORTFOLIO</small>
         </span>
       </Link>
+
+      <p className="portfolio-header__date">上海 · 2026</p>
 
       {navItems.length > 0 && (
         <nav className="portfolio-nav" aria-label="个人品牌站导航">

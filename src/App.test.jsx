@@ -14,9 +14,15 @@ vi.mock('./pages/portfolio/PortfolioPage', () => ({
   },
 }));
 
-vi.mock('./pages/portfolio/PortfolioMethodPage', () => ({
-  default: function PortfolioMethodPageMock() {
-    return <main>工作方法详情页</main>;
+vi.mock('./pages/portfolio/PortfolioNotesPage', () => ({
+  default: function PortfolioNotesPageMock() {
+    return <main>产品心得与方法详情页</main>;
+  },
+}));
+
+vi.mock('./pages/portfolio/PortfolioContactPage', () => ({
+  default: function PortfolioContactPageMock() {
+    return <main>联系详情页</main>;
   },
 }));
 
@@ -61,10 +67,16 @@ describe('个人主页路由', () => {
     expect(await screen.findByRole('heading', { name: /刘唱/i })).toBeInTheDocument();
   });
 
-  test('工作方法使用独立详情页路由', async () => {
+  test('旧工作方法地址合并至产品心得与方法页', async () => {
     renderAt('/method');
 
-    expect(await screen.findByText('工作方法详情页')).toBeInTheDocument();
+    expect(await screen.findByText('产品心得与方法详情页')).toBeInTheDocument();
+  });
+
+  test('产品心得与方法使用独立详情页路由', async () => {
+    renderAt('/notes');
+
+    expect(await screen.findByText('产品心得与方法详情页')).toBeInTheDocument();
   });
 
   test('关键经历使用独立详情页路由', async () => {

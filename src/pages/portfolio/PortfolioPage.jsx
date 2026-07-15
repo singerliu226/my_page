@@ -1,16 +1,15 @@
 import React from 'react';
-import PortfolioFooterLinks from '../../components/portfolio/PortfolioFooterLinks';
 import PortfolioHero from '../../components/portfolio/PortfolioHero';
 import PortfolioPageFrame from '../../components/portfolio/PortfolioPageFrame';
-import PortfolioTimelineOverview from '../../components/portfolio/PortfolioTimelineOverview';
 import { portfolioContent, portfolioHomeTabs } from '../../data/portfolio/content';
 import usePageMetadata from '../../hooks/usePageMetadata';
 import '../../styles/portfolio.css';
+import '../../styles/newsroom.css';
 
 /**
  * @fileoverview 个人品牌首页。
- * 使用单页叙事结构承载简历与作品，是为了让招聘方在最短时间里完成
- * “认识你是谁 -> 相信你做过事 -> 愿意联系你”的决策链。
+ * 首页只承担“这是谁、在找什么岗位、凭什么值得继续看”三件事。
+ * 其余材料下沉至独立页面，避免招聘方在第一屏就被信息淹没。
  */
 
 /**
@@ -25,14 +24,14 @@ function PortfolioPage() {
   });
 
   return (
-    <PortfolioPageFrame navItems={portfolioHomeTabs} mainClassName="portfolio-main portfolio-main--cover">
+    <PortfolioPageFrame
+      navItems={portfolioHomeTabs}
+      mainClassName="portfolio-main portfolio-main--cover"
+      pageClassName="portfolio-page--newsroom"
+    >
       <div className="portfolio-home portfolio-home--editorial">
         <div className="portfolio-home__top">
           <PortfolioHero hero={portfolioContent.hero} />
-        </div>
-        <PortfolioTimelineOverview sectionId="timeline" timeline={portfolioContent.hero.timeline} />
-        <div className="portfolio-home__bottom">
-          <PortfolioFooterLinks sectionId="contact" contact={portfolioContent.contact} layout="cover" />
         </div>
       </div>
     </PortfolioPageFrame>

@@ -17,12 +17,13 @@ import { useNavigate } from 'react-router-dom';
  */
 function PortfolioTimelineOverview({ timeline, sectionId }) {
   const navigate = useNavigate();
-  const [activeIndex, setActiveIndex] = useState(null);
+  const currentIndex = Math.max(0, timeline.length - 1);
+  const [activeIndex, setActiveIndex] = useState(currentIndex);
   const [lockedIndex, setLockedIndex] = useState(null);
   const previewBase = useMemo(() => ({
     detailTime: 'Overview',
     title: '经济学 → 新闻传播 → AI 产品，三条路径正在收束成一条主线。',
-    summary: '把鼠标放到时间点上看每一段的具体动作，或点击右下角"个人 AI 项目"直接进入作品集。',
+    summary: '把鼠标放到时间点上看每一段的具体动作，了解能力如何从内容训练走向 AI 产品实践。',
     details: [],
   }), []);
 
@@ -56,7 +57,7 @@ function PortfolioTimelineOverview({ timeline, sectionId }) {
    */
   function handleMouseLeave() {
     if (lockedIndex === null) {
-      setActiveIndex(null);
+      setActiveIndex(currentIndex);
     }
   }
 
@@ -76,7 +77,7 @@ function PortfolioTimelineOverview({ timeline, sectionId }) {
       return;
     }
 
-    setActiveIndex(null);
+    setActiveIndex(currentIndex);
   }
 
   /**
@@ -95,7 +96,7 @@ function PortfolioTimelineOverview({ timeline, sectionId }) {
 
     if (lockedIndex === index) {
       setLockedIndex(null);
-      setActiveIndex(null);
+      setActiveIndex(currentIndex);
       return;
     }
 

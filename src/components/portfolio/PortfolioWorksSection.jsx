@@ -1,86 +1,87 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 /**
- * @fileoverview 精选作品矩阵。
- * 外部作品用于证明转化与表达能力，内部项目用于展示更完整的工程与产品闭环。
- */
-
-/**
- * 作品区块。
- *
- * @param {Object} props - 组件属性
- * @param {Array<{title: string, subtitle: string, description: string, ownership: string, practiceHighlights: string[], tech: string[], href: string, actionLabel: string, type: string}>} props.works - 作品数据
- * @returns {JSX.Element}
+ * 项目案例以同一张左右结构卡片呈现：左侧只放可核验的真实界面与链接，
+ * 右侧统一交代问题、个人角色与可复查的工作证据。
  */
 function PortfolioWorksSection({ works }) {
   return (
-    <section id="works" className="portfolio-section">
+    <section id="works" className="portfolio-section portfolio-projects" aria-label="项目案例">
       <div className="portfolio-section__heading">
-        <p>Selected Works</p>
-        <h2>我做的每一件事情，都是基于生活中遇到的真实需求</h2>
+        <p>项目 / vibe coding</p>
+        <h2>每个项目都按同一逻辑阅读：看见产品，再理解我解决了什么问题。</h2>
+        <small>说明：部分作品为 demo 级，仅用于呈现问题判断与产品想法；后续仍将持续完善。</small>
       </div>
 
-      <div className="portfolio-work-grid">
-        {works.map((work) => {
-          const resolvedHref = work.href;
-          const isExternal = work.type === 'external' || /^https?:\/\//.test(resolvedHref);
-          const hasLink = Boolean(resolvedHref);
-
-          const linkProps = isExternal
-            ? { href: resolvedHref, target: '_blank', rel: 'noreferrer noopener' }
-            : { to: resolvedHref };
+      <div className="portfolio-project-list">
+        {works.map((work, index) => {
+          const isExternal = work.type === 'external' || /^https?:\/\//.test(work.href ?? '');
+          const actionProps = isExternal
+            ? { target: '_blank', rel: 'noreferrer noopener' }
+            : {};
 
           return (
-            <article key={work.title} className="portfolio-panel portfolio-work-card">
-              <div className="portfolio-work-card__top">
-                <span className="portfolio-work-card__type">
-                  {isExternal ? 'Live Site' : 'Local Project'}
-                </span>
-                <h3>{work.title}</h3>
-                <p className="portfolio-work-card__subtitle">{work.subtitle}</p>
-              </div>
+            <article key={work.title} className="portfolio-project-card">
+              <figure className={`portfolio-project-card__media portfolio-project-card__media--${work.mediaFormat ?? 'pending'}`}>
+                {work.screenshot ? (
+                  work.href ? (
+                    <a href={work.href} aria-label={`查看 ${work.title}`} {...actionProps}>
+                      <img src={work.screenshot} alt={work.screenshotAlt ?? `${work.title} 产品截图`} />
+                      <span>查看产品 {isExternal ? '↗' : '→'}</span>
+                    </a>
+                  ) : (
+                    <div className="portfolio-project-card__media-static">
+                      <img src={work.screenshot} alt={work.screenshotAlt ?? `${work.title} 产品截图`} />
+                      <span>{work.mediaLabel ?? '项目截图 · 暂不公开体验'}</span>
+                    </div>
+                  )
+                ) : (
+                  <div className="portfolio-project-card__asset-pending">
+                    <span>项目视觉素材待补</span>
+                    <p>{work.assetNote ?? '需要提供真实产品截图或可访问体验地址后展示。'}</p>
+                  </div>
+                )}
+                <figcaption>项目 {String(index + 1).padStart(2, '0')} · {work.subtitle}</figcaption>
+              </figure>
 
-              <p className="portfolio-work-card__description">{work.description}</p>
+              <div className="portfolio-project-card__content">
+                <div className="portfolio-project-card__title">
+                  <p>{work.type === 'external' ? '可在线体验' : '产品实践'}</p>
+                  <h3>{work.title}</h3>
+                  <span>{work.subtitle}</span>
+                </div>
 
-              <div className="portfolio-work-card__group">
-                <strong>职责占比</strong>
-                <p className="portfolio-work-card__ownership">{work.ownership}</p>
-              </div>
+                <dl className="portfolio-project-card__details">
+                  <div>
+                    <dt>问题与方案</dt>
+                    <dd>{work.description}</dd>
+                  </div>
+                  <div>
+                    <dt>我的角色</dt>
+                    <dd>{work.ownership}</dd>
+                  </div>
+                </dl>
 
-              <div className="portfolio-work-card__group">
-                <strong>实践亮点</strong>
-                <ul className="portfolio-bullets portfolio-bullets--compact">
-                  {work.practiceHighlights.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
+                <div className="portfolio-project-card__evidence">
+                  <p>产品证据</p>
+                  <ul className="portfolio-bullets portfolio-bullets--compact">
+                    {work.practiceHighlights.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                </div>
 
-              <div className="portfolio-work-card__group">
-                <strong>关键词</strong>
-                <div className="portfolio-chip-list">
-                  {work.tech.map((item) => (
-                    <span key={item} className="portfolio-chip portfolio-chip--ghost">
-                      {item}
-                    </span>
-                  ))}
+                <div className="portfolio-project-card__footer">
+                  <div className="portfolio-chip-list">
+                    {work.tech.map((item) => <span key={item} className="portfolio-chip portfolio-chip--ghost">{item}</span>)}
+                  </div>
+                  {work.href ? (
+                    <a className="portfolio-project-card__link" href={work.href} {...actionProps}>
+                      {work.actionLabel} <span aria-hidden="true">{isExternal ? '↗' : '→'}</span>
+                    </a>
+                  ) : (
+                    <span className="portfolio-project-card__link portfolio-project-card__link--disabled">{work.actionLabel}</span>
+                  )}
                 </div>
               </div>
-
-              {!hasLink ? (
-                <span className="portfolio-work-card__link" aria-disabled="true">
-                  {work.actionLabel}
-                </span>
-              ) : isExternal ? (
-                <a className="portfolio-work-card__link" {...linkProps}>
-                  {work.actionLabel}
-                </a>
-              ) : (
-                <Link className="portfolio-work-card__link" {...linkProps}>
-                  {work.actionLabel}
-                </Link>
-              )}
             </article>
           );
         })}

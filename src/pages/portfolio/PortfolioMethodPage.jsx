@@ -5,6 +5,7 @@ import PortfolioPageFrame from '../../components/portfolio/PortfolioPageFrame';
 import { portfolioContent, portfolioNavItems } from '../../data/portfolio/content';
 import usePageMetadata from '../../hooks/usePageMetadata';
 import '../../styles/portfolio.css';
+import '../../styles/newsroom.css';
 
 /**
  * @fileoverview 工作方法详情页。
@@ -18,7 +19,11 @@ function PortfolioMethodPage() {
   });
 
   return (
-    <PortfolioPageFrame navItems={portfolioNavItems} backLink={{ label: '返回首页', href: '/' }}>
+    <PortfolioPageFrame
+      navItems={portfolioNavItems}
+      backLink={{ label: '返回首页', href: '/' }}
+      pageClassName="portfolio-page--newsroom"
+    >
       <PortfolioMethodSection methods={portfolioContent.methods} />
       <PortfolioFooterLinks contact={portfolioContent.contact} />
     </PortfolioPageFrame>

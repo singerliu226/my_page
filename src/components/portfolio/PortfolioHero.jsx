@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * @fileoverview 首页 Hero 区块。
@@ -13,39 +14,60 @@ function PortfolioHero({ hero }) {
         <div className="portfolio-hero__lede">
           <p className="portfolio-eyebrow">{hero.eyebrow}</p>
           <h1>{hero.name}</h1>
-          <h2>{hero.headline}</h2>
-          <div className="portfolio-hero__summary" aria-label="个人简介">
-            {hero.summaryLines.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
+          {hero.identity && <p className="portfolio-hero__identity">{hero.identity}</p>}
+          <div className="portfolio-hero__summary-block" aria-label="个人简介">
+            <p className="portfolio-hero__summary-label">{hero.summaryLabel ?? '个人总结'}</p>
+            <h2>{hero.headline}</h2>
+            <div className="portfolio-hero__summary">
+              {hero.summaryLines.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
           </div>
+          {hero.actions?.length > 0 && (
+            <div className="portfolio-hero__actions" aria-label="重点入口">
+              {hero.actions.map((action) => {
+                const className = `portfolio-hero__action portfolio-hero__action--${action.type}`;
+
+                if (action.external) {
+                  return (
+                    <a key={action.label} className={className} href={action.href} target="_blank" rel="noreferrer">
+                      {action.label}
+                      <span aria-hidden="true">{action.arrow ?? '↗'}</span>
+                    </a>
+                  );
+                }
+
+                return (
+                  <Link key={action.label} className={className} to={action.href}>
+                    {action.label}
+                    <span aria-hidden="true">{action.arrow ?? '→'}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </div>
 
-        <aside className="portfolio-hero__portrait-block" aria-hidden="false">
-          <div className="portfolio-hero__portrait-frame">
-            <img
-              className="portfolio-hero__portrait"
-              src={hero.portrait.src}
-              alt={hero.portrait.alt}
-              loading="eager"
-              decoding="async"
-            />
+        <aside className="portfolio-hero__news-brief" aria-label="个人简介补充">
+          <div className="portfolio-hero__archive-mark">
+            <span>{hero.archive?.code}</span>
+            <strong>{hero.archive?.label}</strong>
           </div>
-          {hero.portrait.note && (
-            <p className="portfolio-hero__portrait-note">{hero.portrait.note}</p>
+          <p className="portfolio-hero__brief-kicker">{hero.briefKicker ?? '我在做什么'}</p>
+          <p className="portfolio-hero__brief-copy">{hero.briefCopy ?? '从信息判断出发，把内容、模型与真实使用场景组织成可验证的产品闭环。'}</p>
+          {hero.archive?.description && <p className="portfolio-hero__archive-description">{hero.archive.description}</p>}
+          {hero.quickFacts && hero.quickFacts.length > 0 && (
+            <dl className="portfolio-hero__facts" aria-label="关键事实">
+              {hero.quickFacts.map((fact) => (
+                <div key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
           )}
         </aside>
-
-        {hero.quickFacts && hero.quickFacts.length > 0 && (
-          <dl className="portfolio-hero__facts" aria-label="关键事实">
-            {hero.quickFacts.map((fact) => (
-              <div key={fact.label}>
-                <dt>{fact.label}</dt>
-                <dd>{fact.value}</dd>
-              </div>
-            ))}
-          </dl>
-        )}
       </div>
     </section>
   );
