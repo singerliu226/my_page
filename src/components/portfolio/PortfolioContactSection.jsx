@@ -13,18 +13,20 @@ import React from 'react';
  * @returns {JSX.Element}
  */
 function PortfolioContactSection({ contact }) {
+  const channels = contact.primary ? [contact.primary, ...contact.channels] : contact.channels;
+
   return (
     <section id="contact" className="portfolio-section portfolio-section--contact">
       <div className="portfolio-panel portfolio-contact-card">
         <div className="portfolio-section__heading portfolio-section__heading--compact">
-          <p>Contact</p>
-          <h2>如果你觉得我适合你们正在做的产品，欢迎直接联系我</h2>
+          <p>报尾 · CONTACT</p>
+          <h1>如果你觉得我适合你们正在做的产品，欢迎直接联系我</h1>
         </div>
 
         <p className="portfolio-contact-card__intro">{contact.intro}</p>
 
         <div className="portfolio-contact-grid">
-          {contact.channels.map((channel) => (
+          {channels.map((channel) => (
             <a
               key={channel.label}
               className="portfolio-contact-item"

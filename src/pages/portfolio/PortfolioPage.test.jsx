@@ -16,10 +16,11 @@ describe('Portfolio 首页招聘入口', () => {
   test('首页只呈现身份、岗位判断与下一步入口', () => {
     renderPortfolioPage();
 
-    expect(screen.getByRole('heading', { level: 1, name: '刘唱' })).toBeInTheDocument();
     expect(screen.getByRole('heading', {
+      level: 1,
       name: '我喜欢在生活/工作中发现真实用户问题，在调研后快速搭建，推动实现可验证的 AI 产品闭环。',
     })).toBeInTheDocument();
+    expect(screen.getByText('刘唱')).toBeInTheDocument();
     expect(screen.getByText('AI 产品经理｜复旦大学新闻与传播硕士（2027 届）')).toBeInTheDocument();
     expect(screen.getByText('上海及长三角')).toBeInTheDocument();
     expect(screen.queryByLabelText('AI 产品能力链路')).not.toBeInTheDocument();
@@ -42,6 +43,6 @@ describe('Portfolio 首页招聘入口', () => {
     renderPortfolioPage();
 
     expect(screen.getByRole('link', { name: '下载完整简历' })).toHaveAttribute('href', '/resume/liuchang-resume.pdf');
-    expect(screen.getByText('在 Lyncia 团队制作面向妈妈的 AI 情感陪伴 demo，并调试数字人回答的真人感、关系边界与安全标准。')).toBeInTheDocument();
+    expect(screen.getByText('在盛大健康数据事业群 Lyncia Lab 参与 AI 心理健康产品，推进 C 端女性日常陪伴与 B 端咨询师陪练的研究、产品设计、AI 评测与体验验证。')).toBeInTheDocument();
   });
 });

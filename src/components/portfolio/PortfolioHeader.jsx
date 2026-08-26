@@ -20,8 +20,8 @@ function PortfolioHeader({ navItems = [] }) {
       <p className="portfolio-header__edition">个人作品集 · 2026</p>
       <Link className="portfolio-brand" to="/">
         <span className="portfolio-brand__text">
-          <strong>刘唱</strong>
-          <small>AI PRODUCT PORTFOLIO</small>
+          <strong>刘唱 <em>LIU CHANG</em></strong>
+          <small>AI PRODUCT PORTFOLIO · 2026</small>
         </span>
       </Link>
 
@@ -35,7 +35,11 @@ function PortfolioHeader({ navItems = [] }) {
                 {item.label}
               </a>
             ) : (
-              <NavLink key={item.key} className="portfolio-nav__item" to={item.href}>
+              <NavLink
+                key={item.key}
+                className={({ isActive }) => `portfolio-nav__item${isActive ? ' portfolio-nav__item--active' : ''}`}
+                to={item.href}
+              >
                 {item.label}
               </NavLink>
             )

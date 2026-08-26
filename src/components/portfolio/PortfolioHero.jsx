@@ -13,11 +13,10 @@ function PortfolioHero({ hero }) {
       <div className="portfolio-hero__content">
         <div className="portfolio-hero__lede">
           <p className="portfolio-eyebrow">{hero.eyebrow}</p>
-          <h1>{hero.name}</h1>
           {hero.identity && <p className="portfolio-hero__identity">{hero.identity}</p>}
           <div className="portfolio-hero__summary-block" aria-label="个人简介">
             <p className="portfolio-hero__summary-label">{hero.summaryLabel ?? '个人总结'}</p>
-            <h2>{hero.headline}</h2>
+            <h1>{hero.headline}</h1>
             <div className="portfolio-hero__summary">
               {hero.summaryLines.map((line) => (
                 <p key={line}>{line}</p>

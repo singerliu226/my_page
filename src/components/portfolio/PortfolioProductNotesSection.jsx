@@ -7,6 +7,11 @@ import React from 'react';
 function PortfolioProductNotesSection({ notes, sectionId }) {
   return (
     <section className="portfolio-product-notes" id={sectionId} aria-label="产品心得">
+      <div className="portfolio-section__heading portfolio-section__heading--page">
+        <p>评论 · NOTES</p>
+        <h1>产品心得与方法</h1>
+        <small>把对 AI 产品质量、边界与用户体验的判断，写成可以复查和持续迭代的标准。</small>
+      </div>
       <div className="portfolio-product-notes__mast">
         <p>{notes.eyebrow}</p>
         <h2>{notes.title}</h2>

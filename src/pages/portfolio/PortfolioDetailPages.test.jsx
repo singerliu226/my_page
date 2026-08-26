@@ -47,13 +47,13 @@ describe('Portfolio 详情页回退入口', () => {
 
     expect(screen.getByText('说明：部分作品为 demo 级，仅用于呈现问题判断与产品想法；后续仍将持续完善。')).toBeInTheDocument();
     expect(screen.getAllByText('新传 Mind').length).toBeGreaterThan(0);
-    expect(screen.getByText('灵溪“大院”Agent')).toBeInTheDocument();
+    expect(screen.getByText('灵溪大院')).toBeInTheDocument();
     expect(screen.getByText('设计伴侣')).toBeInTheDocument();
     expect(screen.getByText('火炬智库 · 董事长数字分身')).toBeInTheDocument();
     expect(screen.getByText('小财神 Pro')).toBeInTheDocument();
     expect(screen.getByText('泊乐歌词工具')).toBeInTheDocument();
     expect(screen.getByText('论文盾')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: '查看 灵溪“大院”Agent' }))
+    expect(screen.getByRole('link', { name: '查看 灵溪大院' }))
       .toHaveAttribute('href', 'http://47.103.122.202:8799/?invite=lingxi2026');
     expect(screen.getByRole('link', { name: '查看 论文盾' }))
       .toHaveAttribute('href', 'https://aigctest.zeabur.app/');

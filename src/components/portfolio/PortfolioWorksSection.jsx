@@ -8,7 +8,8 @@ function PortfolioWorksSection({ works }) {
   return (
     <section id="works" className="portfolio-section portfolio-projects" aria-label="项目案例">
       <div className="portfolio-section__heading">
-        <p>项目 / vibe coding</p>
+        <p>深度专栏 · WORKS / VIBE CODING</p>
+        <h1>项目 / vibe coding</h1>
         <small>说明：部分作品为 demo 级，仅用于呈现问题判断与产品想法；后续仍将持续完善。</small>
       </div>
 

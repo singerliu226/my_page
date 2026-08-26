@@ -1,17 +1,17 @@
 /* 以信息密度、衬线标题与细规则构建的个人作品集排版。 */
 .portfolio-page--newsroom {
-  --news-paper: #f7f2e8;
-  --news-white: #fffdf8;
+  --news-paper: #faf9f6;
+  --news-white: #fffefa;
   --news-ink: #1e1b18;
   --news-muted: #6c6258;
-  --news-rule: rgba(30, 27, 24, 0.28);
-  --news-rule-soft: rgba(30, 27, 24, 0.14);
+  --news-rule: #b9b8b7;
+  --news-rule-soft: rgba(30, 27, 24, 0.16);
   --news-red: #7a261c;
   --news-red-soft: #ae8f79;
   --news-sand: #e9dfd0;
   --nyt-display: 'Newsreader', 'Noto Serif SC', 'Songti SC', STSong, serif;
-  --nyt-text: 'Libre Franklin', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
-  --nyt-meta: 'Libre Franklin', 'Noto Sans SC', sans-serif;
+  --nyt-text: 'Noto Serif SC', 'Songti SC', STSong, serif;
+  --nyt-meta: 'Libre Franklin', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--news-ink);
   overflow-x: clip;
   background: var(--news-paper);
@@ -24,12 +24,14 @@
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   grid-template-rows: auto auto;
   align-items: center;
-  min-height: 104px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  min-height: 112px;
   padding: 14px clamp(20px, 4vw, 54px) 0;
   border-top: 4px double var(--news-ink);
   border-bottom: 1px solid var(--news-ink);
-  background: rgba(247, 242, 232, 0.94);
-  backdrop-filter: blur(10px);
+  background: var(--news-paper);
 }
 
 .portfolio-page--newsroom .portfolio-header__edition,
@@ -49,12 +51,22 @@
   display: block;
   color: var(--news-ink);
   font-family: var(--nyt-display);
-  font-size: clamp(2.45rem, 4.2vw, 4rem);
+  font-size: clamp(2.15rem, 3.8vw, 3.65rem);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.075em;
   line-height: 0.95;
   transform: scaleX(1.14);
   transform-origin: center;
+}
+
+.portfolio-page--newsroom .portfolio-brand__text strong em {
+  margin-left: 0.12em;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 0.32em;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  vertical-align: 0.2em;
 }
 
 .portfolio-page--newsroom .portfolio-brand__text small {
@@ -98,7 +110,7 @@
 .portfolio-page--newsroom .portfolio-nav__item--active { color: var(--news-red); }
 .portfolio-page--newsroom :focus-visible { outline: 2px solid var(--news-red); outline-offset: 3px; }
 
-.portfolio-page--newsroom .portfolio-main { width: min(1320px, calc(100% - 48px)); }
+.portfolio-page--newsroom .portfolio-main { width: min(1200px, calc(100% - 48px)); }
 .portfolio-page--newsroom .portfolio-main--cover { padding: 0; }
 .portfolio-page--newsroom .portfolio-home--editorial {
   min-height: calc(100vh - 144px);
@@ -115,7 +127,7 @@
 }
 
 .portfolio-page--newsroom .portfolio-hero::after {
-  content: 'AI 产品 · 内容系统 · 真实验证';
+  content: '首版 · FRONT PAGE';
   position: absolute;
   top: 20px;
   right: 0;
@@ -127,8 +139,8 @@
 
 .portfolio-page--newsroom .portfolio-hero__content {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(290px, 0.65fr);
-  gap: clamp(32px, 5vw, 68px);
+  grid-template-columns: minmax(0, 8fr) minmax(280px, 4fr);
+  gap: clamp(28px, 4vw, 56px);
   min-height: 0;
   padding: 54px 0 34px;
   border: 0;
@@ -153,20 +165,8 @@
   letter-spacing: 0.16em;
 }
 
-.portfolio-page--newsroom .portfolio-hero h1 {
-  margin: 12px 0 0;
-  color: var(--news-ink);
-  font-family: var(--nyt-display);
-  font-size: clamp(3.8rem, 6.3vw, 6.9rem);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  line-height: 0.88;
-  transform: scaleX(1.12);
-  transform-origin: left center;
-}
-
 .portfolio-page--newsroom .portfolio-hero__identity {
-  margin: 14px 0 0;
+  margin: 18px 0 0;
   color: var(--news-muted);
   font-family: var(--nyt-meta);
   font-size: 13px;
@@ -175,10 +175,11 @@
 }
 
 .portfolio-page--newsroom .portfolio-hero__summary-block {
-  max-width: 680px;
-  margin-top: 28px;
-  padding-top: 16px;
-  border-top: 1px solid var(--news-ink);
+  max-width: 720px;
+  margin-top: 22px;
+  padding: 0 0 0 22px;
+  border-top: 0;
+  border-left: 4px solid var(--news-red);
 }
 
 .portfolio-page--newsroom .portfolio-hero__summary-label {
@@ -190,17 +191,15 @@
   letter-spacing: .08em;
 }
 
-.portfolio-page--newsroom .portfolio-hero h2 {
-  max-width: 680px;
-  margin: 8px 0 0;
-  padding-top: 0;
-  border-top: 0;
+.portfolio-page--newsroom .portfolio-hero h1 {
+  max-width: 760px;
+  margin: 10px 0 0;
   color: var(--news-ink);
   font-family: var(--nyt-display);
-  font-size: clamp(2.15rem, 3.15vw, 3.5rem);
+  font-size: clamp(2.45rem, 4.4vw, 4.95rem);
   font-weight: 600;
-  letter-spacing: -0.09em;
-  line-height: 1.12;
+  letter-spacing: -0.06em;
+  line-height: 1.08;
 }
 
 .portfolio-page--newsroom .portfolio-hero__summary {
@@ -233,9 +232,11 @@
 
 .portfolio-page--newsroom .portfolio-hero__news-brief {
   align-self: start;
-  margin-top: 30px;
-  padding: 16px 0 0 24px;
-  border-left: 1px solid var(--news-ink);
+  margin-top: 26px;
+  padding: 22px 22px 8px;
+  border: 1px solid var(--news-ink);
+  background: var(--news-ink);
+  color: var(--news-white);
 }
 
 .portfolio-page--newsroom .portfolio-hero__archive-mark {
@@ -244,16 +245,16 @@
   width: auto;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--news-rule);
-  color: var(--news-red);
+  color: #d7a998;
   font-family: var(--nyt-meta);
   font-size: 10px;
   letter-spacing: 0.05em;
 }
 
-.portfolio-page--newsroom .portfolio-hero__archive-mark strong { color: var(--news-ink); font-weight: 600; }
-.portfolio-page--newsroom .portfolio-hero__brief-kicker { margin: 14px 0 5px; color: var(--news-red); font-family: var(--nyt-meta); font-size: 12px; font-weight: 700; }
-.portfolio-page--newsroom .portfolio-hero__brief-copy { margin: 0; color: var(--news-ink); font-family: var(--nyt-display); font-size: 20px; line-height: 1.48; }
-.portfolio-page--newsroom .portfolio-hero__archive-description { margin: 14px 0 0; color: var(--news-muted); font-family: var(--nyt-meta); font-size: 10px; line-height: 1.7; }
+.portfolio-page--newsroom .portfolio-hero__archive-mark strong { color: var(--news-white); font-weight: 600; }
+.portfolio-page--newsroom .portfolio-hero__brief-kicker { margin: 14px 0 5px; color: #d7a998; font-family: var(--nyt-meta); font-size: 12px; font-weight: 700; }
+.portfolio-page--newsroom .portfolio-hero__brief-copy { margin: 0; color: var(--news-white); font-family: var(--nyt-display); font-size: 20px; line-height: 1.48; }
+.portfolio-page--newsroom .portfolio-hero__archive-description { margin: 14px 0 0; color: #d8cfc1; font-family: var(--nyt-meta); font-size: 10px; line-height: 1.7; }
 
 .portfolio-page--newsroom .portfolio-hero__facts {
   display: grid;
@@ -269,11 +270,11 @@
   min-height: auto;
   padding: 11px 0;
   border-right: 0;
-  border-bottom: 1px solid var(--news-rule-soft);
+  border-bottom: 1px solid rgba(255, 254, 250, 0.22);
 }
 
-.portfolio-page--newsroom .portfolio-hero__facts dt { color: var(--news-red); font-family: var(--nyt-meta); font-size: 10px; }
-.portfolio-page--newsroom .portfolio-hero__facts dd { margin-top: 4px; color: var(--news-ink); font-size: 13px; }
+.portfolio-page--newsroom .portfolio-hero__facts dt { color: #d7a998; font-family: var(--nyt-meta); font-size: 10px; }
+.portfolio-page--newsroom .portfolio-hero__facts dd { margin-top: 4px; color: var(--news-white); font-size: 13px; }
 
 /* 首页能力与案例 */
 .portfolio-page--newsroom .portfolio-capability-rail {
@@ -660,4 +661,284 @@
   .portfolio-page--newsroom *,
   .portfolio-page--newsroom *::before,
   .portfolio-page--newsroom *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* 2026 版式精修：用版面、字体和规则线建立层级，不使用悬浮卡片语言。 */
+.portfolio-page--newsroom .portfolio-main:not(.portfolio-main--cover) {
+  padding: 46px 0 96px;
+}
+
+.portfolio-page--newsroom .portfolio-page__toolbar {
+  display: flex;
+  margin: 0 0 34px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--news-rule);
+}
+
+.portfolio-page--newsroom .portfolio-back-link {
+  color: var(--news-muted);
+  font-family: var(--nyt-meta);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.portfolio-page--newsroom .portfolio-back-link::before { content: '← '; }
+.portfolio-page--newsroom .portfolio-back-link:hover { color: var(--news-red); }
+
+.portfolio-page--newsroom .portfolio-section__heading,
+.portfolio-page--newsroom .portfolio-section__heading--compact {
+  margin: 0;
+  padding: 0 0 24px;
+  border: 0;
+  border-top: 3px solid var(--news-ink);
+  border-bottom: 1px solid var(--news-ink);
+}
+
+.portfolio-page--newsroom .portfolio-section__heading p {
+  margin: 14px 0 0;
+  color: var(--news-red);
+  font-family: var(--nyt-meta);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.portfolio-page--newsroom .portfolio-section__heading h1,
+.portfolio-page--newsroom .portfolio-section__heading h2 {
+  max-width: 900px;
+  margin: 8px 0 0;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: clamp(2.7rem, 5.1vw, 5.8rem);
+  font-weight: 600;
+  letter-spacing: -0.07em;
+  line-height: 1.03;
+}
+
+.portfolio-page--newsroom .portfolio-section__heading small {
+  max-width: 65ch;
+  margin-top: 16px;
+  color: var(--news-muted);
+  font-family: var(--nyt-text);
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1.8;
+}
+
+.portfolio-page--newsroom .portfolio-section__heading--page { margin-bottom: 52px; }
+
+/* 关键经历：以三栏新闻条目替代大块履历卡片。 */
+.portfolio-page--newsroom .portfolio-experience-group { margin-top: 54px; }
+.portfolio-page--newsroom .portfolio-experience-group__heading {
+  grid-template-columns: minmax(160px, 0.28fr) minmax(0, 1fr);
+  padding-bottom: 14px;
+  border-bottom: 3px solid var(--news-ink);
+}
+
+.portfolio-page--newsroom .portfolio-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 0;
+  border-top: 0;
+}
+
+.portfolio-page--newsroom .portfolio-timeline__item {
+  position: relative;
+  display: flex;
+  min-height: 318px;
+  padding: 26px 24px 30px;
+  border: 0;
+  border-right: 1px solid var(--news-rule);
+  border-bottom: 1px solid var(--news-rule);
+}
+
+.portfolio-page--newsroom .portfolio-timeline__item:nth-child(3n) { border-right: 0; }
+
+.portfolio-page--newsroom .portfolio-timeline__item::before {
+  position: absolute;
+  top: 27px;
+  left: -5px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--news-red);
+  border-radius: 50%;
+  background: var(--news-paper);
+  content: '';
+}
+
+.portfolio-page--newsroom .portfolio-timeline__meta {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+}
+
+.portfolio-page--newsroom .portfolio-timeline__meta span,
+.portfolio-page--newsroom .portfolio-timeline__meta small {
+  font-family: var(--nyt-meta);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.portfolio-page--newsroom .portfolio-timeline__meta strong {
+  margin: 16px 0 8px;
+  font-family: var(--nyt-display);
+  font-size: clamp(1.55rem, 2.15vw, 2.2rem);
+  line-height: 1.16;
+}
+
+.portfolio-page--newsroom .portfolio-timeline__content { padding: 18px 0 0; }
+.portfolio-page--newsroom .portfolio-timeline__content p { margin: 0; font-size: 14px; line-height: 1.75; }
+.portfolio-page--newsroom .portfolio-timeline__content .portfolio-bullets { margin-top: 14px; font-size: 13px; line-height: 1.7; }
+
+/* 项目页：特稿编排，奇偶条目轮流切换图文主次。 */
+.portfolio-page--newsroom .portfolio-project-list { margin-top: 0; border-top: 3px solid var(--news-ink); }
+.portfolio-page--newsroom .portfolio-project-card {
+  grid-template-columns: minmax(0, 0.96fr) minmax(340px, 1fr);
+  align-items: start;
+  padding: 42px 0;
+}
+
+.portfolio-page--newsroom .portfolio-project-card:nth-child(even) .portfolio-project-card__media { order: 2; }
+.portfolio-page--newsroom .portfolio-project-card:nth-child(even) .portfolio-project-card__content {
+  order: 1;
+  padding: 8px 38px 8px 0;
+}
+
+.portfolio-page--newsroom .portfolio-project-card__media,
+.portfolio-page--newsroom .portfolio-project-card__media--phone {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.portfolio-page--newsroom .portfolio-project-card__media--phone { width: min(100%, 228px); }
+.portfolio-page--newsroom .portfolio-project-card__media figcaption { text-shadow: none; }
+.portfolio-page--newsroom .portfolio-project-card__asset-pending { background: #2a2b2d; }
+.portfolio-page--newsroom .portfolio-project-card__media > a:hover img { transform: none; opacity: 0.92; }
+
+.portfolio-page--newsroom .portfolio-project-card__title h3 {
+  font-size: clamp(2rem, 3.2vw, 3.5rem);
+  letter-spacing: -0.06em;
+}
+
+/* 评论页以正文为主，首字下沉只用于导语，避免装饰压过内容。 */
+.portfolio-page--newsroom .portfolio-product-notes__mast {
+  max-width: none;
+  margin-top: 0;
+  padding: 0 0 28px;
+  border-top: 3px solid var(--news-ink);
+}
+
+.portfolio-page--newsroom .portfolio-product-notes__mast > p:first-child {
+  margin-top: 14px;
+  color: var(--news-red);
+  font-family: var(--nyt-meta);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.portfolio-page--newsroom .portfolio-product-notes__mast h2 {
+  max-width: 900px;
+  margin: 14px 0 12px;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: clamp(2rem, 3.6vw, 3.75rem);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1.1;
+}
+
+.portfolio-page--newsroom .portfolio-product-notes__intro {
+  max-width: 64ch;
+  color: var(--news-muted);
+  font-family: var(--nyt-text);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.portfolio-page--newsroom .portfolio-product-notes__intro::first-letter {
+  float: left;
+  margin: 0.03em 0.1em 0 0;
+  color: var(--news-red);
+  font-family: var(--nyt-display);
+  font-size: 4.2em;
+  font-weight: 600;
+  line-height: 0.76;
+}
+
+/* 联系页：四个渠道作为报尾版块，并保留所有原始链接。 */
+.portfolio-page--newsroom .portfolio-contact-card {
+  padding: 0;
+  border: 0;
+  border-top: 3px solid var(--news-ink);
+  border-bottom: 1px solid var(--news-ink);
+  background: transparent;
+}
+
+.portfolio-page--newsroom .portfolio-contact-card .portfolio-section__heading {
+  padding: 0 0 26px;
+  border-top: 0;
+}
+
+.portfolio-page--newsroom .portfolio-contact-card .portfolio-section__heading h1 { font-size: clamp(2.2rem, 4.4vw, 4.7rem); }
+.portfolio-page--newsroom .portfolio-contact-card__intro { max-width: 62ch; color: var(--news-muted); line-height: 1.85; }
+
+.portfolio-page--newsroom .portfolio-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 34px 0 0;
+  border-top: 1px solid var(--news-rule);
+  border-bottom: 1px solid var(--news-rule);
+}
+
+.portfolio-page--newsroom .portfolio-contact-item {
+  min-height: 122px;
+  padding: 18px 18px 18px 0;
+  border: 0;
+  border-right: 1px solid var(--news-rule);
+  border-radius: 0;
+  background: transparent;
+}
+
+.portfolio-page--newsroom .portfolio-contact-item + .portfolio-contact-item { padding-left: 18px; }
+.portfolio-page--newsroom .portfolio-contact-item:last-child { border-right: 0; }
+.portfolio-page--newsroom .portfolio-contact-item:hover { background: transparent; color: var(--news-red); }
+.portfolio-page--newsroom .portfolio-contact-item span { color: var(--news-red); font-family: var(--nyt-meta); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; }
+.portfolio-page--newsroom .portfolio-contact-item strong { margin-top: 12px; font-family: var(--nyt-display); font-size: 1.25rem; font-weight: 600; line-height: 1.35; }
+
+@media (max-width: 900px) {
+  .portfolio-page--newsroom .portfolio-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portfolio-page--newsroom .portfolio-timeline__item:nth-child(3n) { border-right: 1px solid var(--news-rule); }
+  .portfolio-page--newsroom .portfolio-timeline__item:nth-child(2n) { border-right: 0; }
+  .portfolio-page--newsroom .portfolio-contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portfolio-page--newsroom .portfolio-contact-item:nth-child(2) { border-right: 0; }
+  .portfolio-page--newsroom .portfolio-hero__news-brief {
+    padding: 24px 22px 12px;
+    border: 1px solid var(--news-ink);
+    background: var(--news-ink);
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-page--newsroom .portfolio-main { width: min(100% - 30px, 1200px); }
+  .portfolio-page--newsroom .portfolio-brand__text strong { font-size: clamp(1.65rem, 8vw, 2.2rem); }
+  .portfolio-page--newsroom .portfolio-brand__text strong em { display: block; margin: 4px 0 0; font-size: 0.28em; }
+  .portfolio-page--newsroom .portfolio-hero__content { padding: 44px 0 26px; }
+  .portfolio-page--newsroom .portfolio-hero h1 { font-size: clamp(2.35rem, 10.8vw, 3.55rem); }
+  .portfolio-page--newsroom .portfolio-hero__summary-block { padding-left: 16px; }
+  .portfolio-page--newsroom .portfolio-section__heading--page { margin-bottom: 36px; }
+  .portfolio-page--newsroom .portfolio-timeline { grid-template-columns: 1fr; }
+  .portfolio-page--newsroom .portfolio-timeline__item,
+  .portfolio-page--newsroom .portfolio-timeline__item:nth-child(3n) { min-height: 0; border-right: 0; }
+  .portfolio-page--newsroom .portfolio-project-card:nth-child(even) .portfolio-project-card__media,
+  .portfolio-page--newsroom .portfolio-project-card:nth-child(even) .portfolio-project-card__content { order: initial; padding: 0; }
+  .portfolio-page--newsroom .portfolio-contact-grid { grid-template-columns: 1fr; }
+  .portfolio-page--newsroom .portfolio-contact-item,
+  .portfolio-page--newsroom .portfolio-contact-item + .portfolio-contact-item { min-height: auto; padding: 16px 0; border-right: 0; border-bottom: 1px solid var(--news-rule); }
+  .portfolio-page--newsroom .portfolio-contact-item:last-child { border-bottom: 0; }
 }

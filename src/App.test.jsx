@@ -1,7 +1,18 @@
 import React from 'react';
 import { beforeEach, describe, expect, test, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { Link, MemoryRouter, Route, Routes } from 'react-router-dom';
+import App, { PageTurn } from './App';
+
+vi.mock('page-flip', () => ({
+  PageFlip: class PageFlipMock {
+    clear() {}
+
+    flipNext() {}
+
+    loadFromHTML() {}
+  },
+}));
 
 vi.mock('./pages/portfolio/PortfolioPage', () => ({
   default: function PortfolioPageMock() {
@@ -101,5 +112,30 @@ describe('个人主页路由', () => {
     renderAt('/projects/rednote/collections');
 
     expect(await screen.findByText(/RedNote Collector 真实工具工作区/i)).toBeInTheDocument();
+  });
+
+  test('站内路由切换时只在展示层添加翻报纸动效', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <Link to="/next">下一版</Link>
+        <PageTurn>
+          <Routes>
+            <Route path="/" element={<main>首版</main>} />
+            <Route path="/next" element={<main>下一版内容</main>} />
+          </Routes>
+        </PageTurn>
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByTestId('site-page-turn')).toHaveAttribute('data-route', '/');
+    expect(screen.getByTestId('site-page-turn')).not.toHaveClass('site-page-turn--flip');
+
+    fireEvent.click(screen.getByRole('link', { name: '下一版' }));
+
+    expect(screen.getAllByText('下一版内容')).not.toHaveLength(0);
+    expect(screen.getByTestId('site-page-turn')).toHaveAttribute('data-route', '/next');
+    expect(screen.getByTestId('site-page-turn')).toHaveClass('site-page-turn--flip');
+    expect(screen.getByTestId('site-page-turn-paper')).toHaveTextContent('首版');
+    expect(screen.getByTestId('site-page-turn-paper')).toHaveTextContent('下一版内容');
   });
 });
