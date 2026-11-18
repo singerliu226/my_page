@@ -94,8 +94,6 @@ function GardenFilm({ film }) {
         <p className="portfolio-garden__meta">{film.meta}</p>
         <h3>{film.title}</h3>
         <p>{film.summary}</p>
-        <p>{film.craft}</p>
-        <p className="portfolio-garden__limit"><b>没做到的</b>{film.limit}</p>
       </div>
     </article>
   );
@@ -112,53 +110,32 @@ function PortfolioGardenSection({ garden }) {
         <h1>{masthead.title}</h1>
         <small>{masthead.lead}</small>
       </div>
-      <p className="portfolio-garden__note">{masthead.note}</p>
 
       <article className="portfolio-garden-lead" aria-labelledby="garden-lead-title">
-        <div className="portfolio-garden-lead__side">
-          <div className="portfolio-garden-lead__visual">
-            <figure className="portfolio-garden-lead__shot">
-              <img src={headline.image.src} alt={headline.image.alt} loading="lazy" />
-              <figcaption>{headline.image.caption}</figcaption>
-            </figure>
-            <figure className="portfolio-garden-lead__phone">
-              <img src={headline.phone.src} alt={headline.phone.alt} loading="lazy" />
-              <figcaption>{headline.phone.caption}</figcaption>
-            </figure>
-          </div>
-
-          <ul className="portfolio-garden-lead__facts">
-            {headline.facts.map((fact) => (
-              <li key={fact.label}><strong>{fact.value}</strong><span>{fact.label}</span></li>
-            ))}
-          </ul>
-
-          <p className="portfolio-garden-lead__online">{headline.online}</p>
-          <p className="portfolio-garden__limit"><b>没做到的</b>{headline.limit}</p>
-        </div>
+        <figure className="portfolio-garden-lead__shot">
+          <img src={headline.image.src} alt={headline.image.alt} loading="lazy" />
+        </figure>
 
         <div className="portfolio-garden-lead__text">
           <p className="portfolio-garden__kicker">{headline.kicker}</p>
           <h2 id="garden-lead-title">{headline.title}</h2>
           <p className="portfolio-garden-lead__tagline">{headline.tagline}</p>
-          <p className="portfolio-garden__meta">{headline.meta}</p>
           <p className="portfolio-garden-lead__summary">{headline.summary}</p>
 
-          <div className="portfolio-garden-lead__cta">
-            <GardenPlayLink game={headline} onPlay={setPlaying} className="portfolio-garden__play portfolio-garden__play--big" />
-            <span>{headline.play.note}</span>
-          </div>
-          <p className="portfolio-garden-lead__solo">{headline.solo}</p>
-
-          <h3>{headline.decisionsTitle}</h3>
-          <dl className="portfolio-garden-lead__decisions">
-            {headline.decisions.map((item) => (
+          <h3>{headline.howTitle}</h3>
+          <dl className="portfolio-garden-lead__how">
+            {headline.how.map((item) => (
               <div key={item.label}>
                 <dt>{item.label}</dt>
                 <dd>{item.text}</dd>
               </div>
             ))}
           </dl>
+
+          <div className="portfolio-garden-lead__cta">
+            <GardenPlayLink game={headline} onPlay={setPlaying} className="portfolio-garden__play portfolio-garden__play--big" />
+            <span>{headline.play.note}</span>
+          </div>
         </div>
       </article>
 
@@ -177,12 +154,9 @@ function PortfolioGardenSection({ garden }) {
                 </figure>
               )}
             </div>
-            <p className="portfolio-garden__meta">{game.meta}</p>
-            <h3>{game.title}<em>{game.version}</em></h3>
+            <h3>{game.title}</h3>
             <p className="portfolio-garden-game__tagline">{game.tagline}</p>
-            <p>{game.summary}</p>
-            <p className="portfolio-garden__point"><b>看点</b>{game.highlight}</p>
-            <p className="portfolio-garden__limit"><b>没做到的</b>{game.limit}</p>
+            <p className="portfolio-garden__how"><b>怎么玩</b>{game.how}</p>
             <div className="portfolio-garden-game__cta">
               <GardenPlayLink game={game} onPlay={setPlaying} />
               <span>{game.play.note}</span>

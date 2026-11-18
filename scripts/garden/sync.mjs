@@ -254,7 +254,7 @@ async function images() {
   const deck = inCamp('outputs/游戏开发心得分享_20261116/制作/图片');
   const garden = path.join(repo, 'public/portfolio/garden');
   await mkdir(garden, { recursive: true });
-  const shots = ['tongsui-play.jpg', 'tongsui-card.jpg', 'luck-cut.jpg', 'luck-poster.jpg', 'kitchen-soup.jpg', 'kitchen-matcha.jpg', 'eyu-phone.jpg'];
+  const shots = ['tongsui-play.jpg', 'tongsui-card.jpg', 'luck-cut.jpg', 'luck-poster.jpg', 'kitchen-soup.jpg', 'kitchen-matcha.jpg'];
   for (const name of shots) await cp(path.join(deck, name), path.join(garden, name));
   await cp(
     inCamp('AI风向标/M1/最终提交_20261101/交付/图表/第三轮同任务投入对比.png'),

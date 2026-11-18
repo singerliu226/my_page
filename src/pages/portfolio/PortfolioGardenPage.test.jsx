@@ -39,22 +39,23 @@ describe('后花园', () => {
     const files = [
       gardenContent.headline.play.href,
       gardenContent.headline.image.src,
-      gardenContent.headline.phone.src,
       ...gardenContent.games.flatMap((game) => [game.play.href, game.image.src, game.extra?.src]),
       ...gardenContent.films.flatMap((film) => [film.video, film.poster]),
       ...gardenContent.credits.flatMap((credit) => (credit.links ?? []).map((link) => link.href)),
     ].filter((file) => file && file.startsWith('/'));
 
-    expect(files.length).toBeGreaterThan(15);
+    expect(files.length).toBeGreaterThan(12);
     const missing = files.filter((file) => !existsSync(path.join(process.cwd(), 'public', decodeURI(file))));
     expect(missing).toEqual([]);
   });
 
-  test('鹅羽鮨写明放的是单机试玩，并交代联机版的情况', () => {
+  test('每个游戏只讲这是什么、怎么玩；鹅羽鮨写明是单机版', () => {
     renderGarden();
 
-    expect(screen.getByText(/这里放的是单机试玩/)).toBeInTheDocument();
-    expect(screen.getByText(/联机版是一个常驻的 Node 服务/)).toBeInTheDocument();
+    expect(screen.getAllByText('怎么玩')).toHaveLength(4);
+    expect(screen.getByText(/这里是单机版/)).toBeInTheDocument();
+    expect(screen.getByText(/走到空凳子旁按 E 坐下/)).toBeInTheDocument();
+    expect(screen.getByText(/按住屏幕拖动走路/)).toBeInTheDocument();
   });
 
   test('电脑上点“开始玩”才加载游戏，在页内的试玩窗里打开，可以关掉', () => {
@@ -102,10 +103,9 @@ describe('后花园', () => {
     expect(document.querySelector('video source[src="/media/guo-shengri.mp4"]')).not.toBeNull();
   });
 
-  test('每件作品都写了没做到的地方，页尾列出素材署名', () => {
+  test('页尾列出素材署名', () => {
     renderGarden();
 
-    expect(screen.getAllByText('没做到的')).toHaveLength(6);
     expect(screen.getByRole('heading', { name: '素材的来路' })).toBeInTheDocument();
     expect(screen.getByText(/Kevin MacLeod/)).toBeInTheDocument();
     expect(screen.getByText(/Scott Buckley/)).toBeInTheDocument();

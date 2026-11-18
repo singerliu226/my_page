@@ -1,12 +1,4 @@
 /* 后花园：报纸的副刊版。沿用主站的纸色、细线和衬线标题，游戏截图是版面上唯一的彩色。 */
-.portfolio-page--newsroom .portfolio-garden__note {
-  max-width: 68ch;
-  margin: -24px 0 44px;
-  color: var(--news-muted);
-  font-size: 15px;
-  line-height: 1.9;
-}
-
 .portfolio-page--newsroom .portfolio-garden__kicker,
 .portfolio-page--newsroom .portfolio-garden__meta {
   margin: 0;
@@ -18,18 +10,14 @@
 .portfolio-page--newsroom .portfolio-garden__kicker { color: var(--news-red); font-weight: 700; }
 .portfolio-page--newsroom .portfolio-garden__meta { color: var(--news-muted); }
 
-.portfolio-page--newsroom .portfolio-garden__point,
-.portfolio-page--newsroom .portfolio-garden__limit {
+.portfolio-page--newsroom .portfolio-garden__how {
   margin: 0;
+  color: var(--news-muted);
   font-size: 14px;
   line-height: 1.8;
 }
 
-.portfolio-page--newsroom .portfolio-garden__point { color: var(--news-ink); }
-.portfolio-page--newsroom .portfolio-garden__limit { color: var(--news-muted); }
-
-.portfolio-page--newsroom .portfolio-garden__point b,
-.portfolio-page--newsroom .portfolio-garden__limit b {
+.portfolio-page--newsroom .portfolio-garden__how b {
   margin-right: 10px;
   color: var(--news-red);
   font-family: var(--nyt-meta);
@@ -37,8 +25,6 @@
   font-weight: 700;
   letter-spacing: 0.06em;
 }
-
-.portfolio-page--newsroom .portfolio-garden__limit b { color: var(--news-muted); }
 
 /* “开始玩”按钮：全页只有这一种实心按钮 */
 .portfolio-page--newsroom .portfolio-garden__play {
@@ -69,25 +55,17 @@
   border-bottom: 1px solid var(--news-ink);
 }
 
-.portfolio-page--newsroom .portfolio-garden-lead__visual {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 27%;
-  gap: 14px;
-  align-items: start;
-}
-
-.portfolio-page--newsroom .portfolio-garden-lead__visual figure { margin: 0; }
-.portfolio-page--newsroom .portfolio-garden-lead__visual img {
+.portfolio-page--newsroom .portfolio-garden-lead__shot { margin: 0; }
+.portfolio-page--newsroom .portfolio-garden-lead__shot img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 1280 / 800;
   border: 1px solid var(--news-ink);
   background: #14122a;
+  object-fit: cover;
 }
 
-.portfolio-page--newsroom .portfolio-garden-lead__shot img { aspect-ratio: 1280 / 800; object-fit: cover; }
-.portfolio-page--newsroom .portfolio-garden-lead__phone img { aspect-ratio: 1 / 2; object-fit: cover; }
-.portfolio-page--newsroom .portfolio-garden-lead__visual figcaption,
 .portfolio-page--newsroom .portfolio-garden-game__extra figcaption {
   margin-top: 8px;
   color: var(--news-muted);
@@ -107,7 +85,7 @@
 }
 
 .portfolio-page--newsroom .portfolio-garden-lead__tagline {
-  margin: 10px 0 6px;
+  margin: 10px 0 0;
   color: var(--news-ink);
   font-family: var(--nyt-display);
   font-size: 1.3rem;
@@ -125,7 +103,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 14px;
-  margin-top: 22px;
+  margin-top: 26px;
 }
 
 .portfolio-page--newsroom .portfolio-garden-lead__cta > span,
@@ -133,14 +111,6 @@
   color: var(--news-muted);
   font-family: var(--nyt-meta);
   font-size: 12px;
-}
-
-.portfolio-page--newsroom .portfolio-garden-lead__solo,
-.portfolio-page--newsroom .portfolio-garden-lead__online {
-  margin: 14px 0 0;
-  color: var(--news-muted);
-  font-size: 14px;
-  line-height: 1.8;
 }
 
 .portfolio-page--newsroom .portfolio-garden-lead__text h3 {
@@ -154,60 +124,28 @@
   letter-spacing: 0.08em;
 }
 
-.portfolio-page--newsroom .portfolio-garden-lead__decisions { margin: 6px 0 0; }
-.portfolio-page--newsroom .portfolio-garden-lead__decisions div {
+.portfolio-page--newsroom .portfolio-garden-lead__how { margin: 6px 0 0; }
+.portfolio-page--newsroom .portfolio-garden-lead__how div {
   display: grid;
-  grid-template-columns: 116px 1fr;
-  gap: 16px;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
   padding: 11px 0;
   border-bottom: 1px solid var(--news-rule-soft);
 }
 
-.portfolio-page--newsroom .portfolio-garden-lead__decisions dt {
+.portfolio-page--newsroom .portfolio-garden-lead__how dt {
   color: var(--news-ink);
   font-family: var(--nyt-display);
   font-size: 15px;
   font-weight: 600;
 }
 
-.portfolio-page--newsroom .portfolio-garden-lead__decisions dd {
+.portfolio-page--newsroom .portfolio-garden-lead__how dd {
   margin: 0;
   color: var(--news-muted);
   font-size: 14px;
   line-height: 1.75;
 }
-
-.portfolio-page--newsroom .portfolio-garden-lead__facts {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  margin: 26px 0 0;
-  padding: 18px 0 0;
-  border-top: 2px solid var(--news-ink);
-  list-style: none;
-}
-
-.portfolio-page--newsroom .portfolio-garden-lead__facts li { padding: 0 14px; border-left: 1px solid var(--news-rule); }
-.portfolio-page--newsroom .portfolio-garden-lead__facts li:first-child { padding-left: 0; border-left: 0; }
-.portfolio-page--newsroom .portfolio-garden-lead__facts strong {
-  display: block;
-  color: var(--news-ink);
-  font-family: var(--nyt-display);
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 1.1;
-}
-
-.portfolio-page--newsroom .portfolio-garden-lead__facts span {
-  display: block;
-  margin-top: 6px;
-  color: var(--news-muted);
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.portfolio-page--newsroom .portfolio-garden-lead__online { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--news-rule-soft); }
-.portfolio-page--newsroom .portfolio-garden-lead .portfolio-garden__limit { margin-top: 10px; }
 
 /* 栏目小标题 */
 .portfolio-page--newsroom .portfolio-garden__section-title {
@@ -279,30 +217,12 @@
   line-height: 1.15;
 }
 
-.portfolio-page--newsroom .portfolio-garden-game h3 em {
-  margin-left: 10px;
-  color: var(--news-muted);
-  font-family: var(--nyt-meta);
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  vertical-align: 0.5em;
-}
-
 .portfolio-page--newsroom .portfolio-garden-game__tagline {
   margin: 0;
   color: var(--news-ink);
   font-family: var(--nyt-display);
   font-size: 1.05rem;
   line-height: 1.5;
-}
-
-.portfolio-page--newsroom .portfolio-garden-game > p:not([class]) {
-  margin: 0;
-  color: var(--news-muted);
-  font-size: 14px;
-  line-height: 1.8;
 }
 
 .portfolio-page--newsroom .portfolio-garden-game__cta {
@@ -494,15 +414,7 @@
 .portfolio-garden-dialog__frame { flex: 1 1 auto; width: 100%; min-height: 0; border: 0; background: #fffefa; }
 
 @media (max-width: 1000px) {
-  /* 单栏时的顺序：截图 → 标题和“进店坐坐” → 我在意的几件事 → 数字和联机版说明。
-     左栏的几块内容在这里拆开，和右栏的文字穿插排列。 */
-  .portfolio-page--newsroom .portfolio-garden-lead { grid-template-columns: minmax(0, 1fr); gap: 0; }
-  .portfolio-page--newsroom .portfolio-garden-lead__side { display: contents; }
-  .portfolio-page--newsroom .portfolio-garden-lead__visual { order: 1; }
-  .portfolio-page--newsroom .portfolio-garden-lead__text { order: 2; margin-top: 26px; }
-  .portfolio-page--newsroom .portfolio-garden-lead__facts { order: 3; }
-  .portfolio-page--newsroom .portfolio-garden-lead__online { order: 4; }
-  .portfolio-page--newsroom .portfolio-garden-lead .portfolio-garden__limit { order: 5; }
+  .portfolio-page--newsroom .portfolio-garden-lead { grid-template-columns: minmax(0, 1fr); gap: 26px; }
   .portfolio-page--newsroom .portfolio-garden-games { grid-template-columns: 1fr; }
   .portfolio-page--newsroom .portfolio-garden-game,
   .portfolio-page--newsroom .portfolio-garden-game:first-child,
@@ -524,12 +436,7 @@
 }
 
 @media (max-width: 640px) {
-  .portfolio-page--newsroom .portfolio-garden__note { margin: -12px 0 30px; }
   .portfolio-page--newsroom .portfolio-garden-lead { padding: 24px 0 32px; }
-  .portfolio-page--newsroom .portfolio-garden-lead__decisions div { grid-template-columns: 1fr; gap: 4px; }
-  .portfolio-page--newsroom .portfolio-garden-lead__facts { grid-template-columns: 1fr; gap: 14px; }
-  .portfolio-page--newsroom .portfolio-garden-lead__facts li,
-  .portfolio-page--newsroom .portfolio-garden-lead__facts li:first-child { padding: 0; border-left: 0; }
   .portfolio-page--newsroom .portfolio-garden__play { width: 100%; justify-content: center; }
   .portfolio-page--newsroom .portfolio-garden-film { grid-template-columns: 132px minmax(0, 1fr); gap: 16px; }
   .portfolio-page--newsroom .portfolio-garden-neighbor { grid-template-columns: 1fr; gap: 8px; }
