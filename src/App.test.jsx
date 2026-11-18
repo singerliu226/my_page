@@ -31,6 +31,12 @@ vi.mock('./pages/portfolio/PortfolioNotesPage', () => ({
   },
 }));
 
+vi.mock('./pages/portfolio/PortfolioGardenPage', () => ({
+  default: function PortfolioGardenPageMock() {
+    return <main>后花园详情页</main>;
+  },
+}));
+
 vi.mock('./pages/portfolio/PortfolioContactPage', () => ({
   default: function PortfolioContactPageMock() {
     return <main>联系详情页</main>;
@@ -87,6 +93,21 @@ describe('个人主页路由', () => {
   test('产品心得与方法使用独立详情页路由', async () => {
     renderAt('/notes');
 
+    expect(await screen.findByText('产品心得与方法详情页')).toBeInTheDocument();
+  });
+
+  test('后花园使用独立详情页路由', async () => {
+    renderAt('/garden');
+
+    expect(await screen.findByText('后花园详情页')).toBeInTheDocument();
+  });
+
+  test('长文有自己的地址，写错了文章名就回到心得页', async () => {
+    const view = renderAt('/notes/long-board');
+    expect(await screen.findByRole('heading', { level: 1, name: '长板效应：团队怎样用上彼此的 AI 经验' })).toBeInTheDocument();
+    view.unmount();
+
+    renderAt('/notes/no-such-essay');
     expect(await screen.findByText('产品心得与方法详情页')).toBeInTheDocument();
   });
 

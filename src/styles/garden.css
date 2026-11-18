@@ -1,0 +1,541 @@
+/* 后花园：报纸的副刊版。沿用主站的纸色、细线和衬线标题，游戏截图是版面上唯一的彩色。 */
+.portfolio-page--newsroom .portfolio-garden__note {
+  max-width: 68ch;
+  margin: -24px 0 44px;
+  color: var(--news-muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.portfolio-page--newsroom .portfolio-garden__kicker,
+.portfolio-page--newsroom .portfolio-garden__meta {
+  margin: 0;
+  font-family: var(--nyt-meta);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+.portfolio-page--newsroom .portfolio-garden__kicker { color: var(--news-red); font-weight: 700; }
+.portfolio-page--newsroom .portfolio-garden__meta { color: var(--news-muted); }
+
+.portfolio-page--newsroom .portfolio-garden__point,
+.portfolio-page--newsroom .portfolio-garden__limit {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.portfolio-page--newsroom .portfolio-garden__point { color: var(--news-ink); }
+.portfolio-page--newsroom .portfolio-garden__limit { color: var(--news-muted); }
+
+.portfolio-page--newsroom .portfolio-garden__point b,
+.portfolio-page--newsroom .portfolio-garden__limit b {
+  margin-right: 10px;
+  color: var(--news-red);
+  font-family: var(--nyt-meta);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.portfolio-page--newsroom .portfolio-garden__limit b { color: var(--news-muted); }
+
+/* “开始玩”按钮：全页只有这一种实心按钮 */
+.portfolio-page--newsroom .portfolio-garden__play {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid var(--news-ink);
+  background: var(--news-ink);
+  color: var(--news-white);
+  font-family: var(--nyt-display);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+.portfolio-page--newsroom .portfolio-garden__play:hover { border-color: var(--news-red); background: var(--news-red); }
+.portfolio-page--newsroom .portfolio-garden__play--big { min-height: 52px; padding: 0 28px; font-size: 17px; }
+
+/* 头条：鹅羽鮨 */
+.portfolio-page--newsroom .portfolio-garden-lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+  gap: 44px;
+  align-items: start;
+  padding: 34px 0 44px;
+  border-top: 3px solid var(--news-ink);
+  border-bottom: 1px solid var(--news-ink);
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 27%;
+  gap: 14px;
+  align-items: start;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__visual figure { margin: 0; }
+.portfolio-page--newsroom .portfolio-garden-lead__visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--news-ink);
+  background: #14122a;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__shot img { aspect-ratio: 1280 / 800; object-fit: cover; }
+.portfolio-page--newsroom .portfolio-garden-lead__phone img { aspect-ratio: 1 / 2; object-fit: cover; }
+.portfolio-page--newsroom .portfolio-garden-lead__visual figcaption,
+.portfolio-page--newsroom .portfolio-garden-game__extra figcaption {
+  margin-top: 8px;
+  color: var(--news-muted);
+  font-family: var(--nyt-meta);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__text h2 {
+  margin: 10px 0 0;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: clamp(3rem, 5vw, 4.6rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__tagline {
+  margin: 10px 0 6px;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: 1.3rem;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__summary {
+  margin: 18px 0 0;
+  color: var(--news-ink);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__cta > span,
+.portfolio-page--newsroom .portfolio-garden-game__cta > span {
+  color: var(--news-muted);
+  font-family: var(--nyt-meta);
+  font-size: 12px;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__solo,
+.portfolio-page--newsroom .portfolio-garden-lead__online {
+  margin: 14px 0 0;
+  color: var(--news-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__text h3 {
+  margin: 28px 0 0;
+  padding-top: 14px;
+  border-top: 2px solid var(--news-ink);
+  color: var(--news-red);
+  font-family: var(--nyt-meta);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__decisions { margin: 6px 0 0; }
+.portfolio-page--newsroom .portfolio-garden-lead__decisions div {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--news-rule-soft);
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__decisions dt {
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__decisions dd {
+  margin: 0;
+  color: var(--news-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 26px 0 0;
+  padding: 18px 0 0;
+  border-top: 2px solid var(--news-ink);
+  list-style: none;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__facts li { padding: 0 14px; border-left: 1px solid var(--news-rule); }
+.portfolio-page--newsroom .portfolio-garden-lead__facts li:first-child { padding-left: 0; border-left: 0; }
+.portfolio-page--newsroom .portfolio-garden-lead__facts strong {
+  display: block;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__facts span {
+  display: block;
+  margin-top: 6px;
+  color: var(--news-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.portfolio-page--newsroom .portfolio-garden-lead__online { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--news-rule-soft); }
+.portfolio-page--newsroom .portfolio-garden-lead .portfolio-garden__limit { margin-top: 10px; }
+
+/* 栏目小标题 */
+.portfolio-page--newsroom .portfolio-garden__section-title {
+  margin: 58px 0 0;
+  padding-top: 16px;
+  border-top: 4px double var(--news-ink);
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: clamp(1.7rem, 2.4vw, 2.3rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.portfolio-page--newsroom .portfolio-garden__section-lead {
+  max-width: 64ch;
+  margin: 10px 0 0;
+  color: var(--news-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* 三个单机小游戏 */
+.portfolio-page--newsroom .portfolio-garden-games {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 22px;
+  border-top: 1px solid var(--news-ink);
+  border-bottom: 1px solid var(--news-rule);
+}
+
+.portfolio-page--newsroom .portfolio-garden-game {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px 24px 30px;
+  border-left: 1px solid var(--news-rule);
+}
+
+.portfolio-page--newsroom .portfolio-garden-game:first-child { padding-left: 0; border-left: 0; }
+.portfolio-page--newsroom .portfolio-garden-game:last-child { padding-right: 0; }
+
+.portfolio-page--newsroom .portfolio-garden-game__shots {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  height: 250px;
+  margin-bottom: 8px;
+}
+
+.portfolio-page--newsroom .portfolio-garden-game__shots figure { height: 100%; margin: 0; }
+.portfolio-page--newsroom .portfolio-garden-game__shots img {
+  display: block;
+  width: auto;
+  height: 100%;
+  border: 1px solid var(--news-rule);
+  background: var(--news-white);
+}
+
+.portfolio-page--newsroom .portfolio-garden-game__device img { border-color: var(--news-ink); border-radius: 12px; }
+.portfolio-page--newsroom .portfolio-garden-game__extra { display: flex; flex-direction: column; }
+.portfolio-page--newsroom .portfolio-garden-game__extra img { height: calc(100% - 26px); }
+
+.portfolio-page--newsroom .portfolio-garden-game h3 {
+  margin: 0;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: clamp(1.8rem, 2.4vw, 2.3rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.portfolio-page--newsroom .portfolio-garden-game h3 em {
+  margin-left: 10px;
+  color: var(--news-muted);
+  font-family: var(--nyt-meta);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  vertical-align: 0.5em;
+}
+
+.portfolio-page--newsroom .portfolio-garden-game__tagline {
+  margin: 0;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.portfolio-page--newsroom .portfolio-garden-game > p:not([class]) {
+  margin: 0;
+  color: var(--news-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.portfolio-page--newsroom .portfolio-garden-game__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+/* 短片 */
+.portfolio-page--newsroom .portfolio-garden-films {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 22px;
+  border-top: 1px solid var(--news-ink);
+  border-bottom: 1px solid var(--news-rule);
+}
+
+.portfolio-page--newsroom .portfolio-garden-film {
+  display: grid;
+  grid-template-columns: 216px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  padding: 28px 28px 32px 0;
+}
+
+.portfolio-page--newsroom .portfolio-garden-film + .portfolio-garden-film {
+  padding: 28px 0 32px 28px;
+  border-left: 1px solid var(--news-rule);
+}
+
+.portfolio-page--newsroom .portfolio-garden-film__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border: 1px solid var(--news-ink);
+  background: var(--news-ink);
+  object-fit: cover;
+}
+
+.portfolio-page--newsroom .portfolio-garden-film__text { display: grid; gap: 10px; }
+.portfolio-page--newsroom .portfolio-garden-film__text h3 {
+  margin: 0;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: clamp(1.7rem, 2.2vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.portfolio-page--newsroom .portfolio-garden-film__text > p:not([class]) {
+  margin: 0;
+  color: var(--news-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* 隔壁的放映室 */
+.portfolio-page--newsroom .portfolio-garden-neighbor {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) auto;
+  gap: 6px 28px;
+  align-items: baseline;
+  margin-top: 40px;
+  padding: 22px 0;
+  border-top: 1px solid var(--news-ink);
+  border-bottom: 1px solid var(--news-ink);
+}
+
+.portfolio-page--newsroom .portfolio-garden-neighbor .portfolio-garden__kicker { grid-row: span 2; }
+.portfolio-page--newsroom .portfolio-garden-neighbor h3 {
+  margin: 0;
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.portfolio-page--newsroom .portfolio-garden-neighbor > p:not([class]) {
+  grid-column: 2;
+  margin: 0;
+  color: var(--news-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.portfolio-page--newsroom .portfolio-garden-neighbor a {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  align-self: center;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--news-ink);
+  color: var(--news-ink);
+  font-family: var(--nyt-display);
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.portfolio-page--newsroom .portfolio-garden-neighbor a:hover { border-color: var(--news-red); color: var(--news-red); }
+
+/* 素材署名 */
+.portfolio-page--newsroom .portfolio-garden-credits { margin: 44px 0 48px; }
+.portfolio-page--newsroom .portfolio-garden-credits h2 {
+  margin: 0 0 10px;
+  color: var(--news-red);
+  font-family: var(--nyt-meta);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.portfolio-page--newsroom .portfolio-garden-credits ul {
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  column-gap: 44px;
+  list-style: none;
+}
+
+.portfolio-page--newsroom .portfolio-garden-credits li {
+  margin: 0 0 9px;
+  break-inside: avoid;
+  color: var(--news-muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.portfolio-page--newsroom .portfolio-garden-credits a {
+  margin-left: 8px;
+  color: var(--news-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.portfolio-page--newsroom .portfolio-garden-credits a:hover { color: var(--news-red); }
+
+/* 试玩窗 */
+.portfolio-garden-dialog {
+  width: min(1180px, 96vw);
+  height: min(860px, 92vh);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 1px solid #1e1b18;
+  background: #1e1b18;
+  color: #fffefa;
+}
+
+.portfolio-garden-dialog[open] { display: flex; flex-direction: column; }
+.portfolio-garden-dialog::backdrop { background: rgba(30, 27, 24, 0.72); }
+
+.portfolio-garden-dialog__bar {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 14px;
+  font-family: 'Libre Franklin', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+}
+
+.portfolio-garden-dialog__bar strong {
+  font-family: 'Newsreader', 'Noto Serif SC', 'Songti SC', STSong, serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.portfolio-garden-dialog__bar span { margin-right: auto; color: rgba(255, 254, 250, 0.62); }
+.portfolio-garden-dialog__bar a { color: #fffefa; text-underline-offset: 3px; }
+.portfolio-garden-dialog__bar button {
+  min-height: 36px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 254, 250, 0.6);
+  background: transparent;
+  color: #fffefa;
+  font: inherit;
+  cursor: pointer;
+}
+
+.portfolio-garden-dialog__bar button:hover { background: #fffefa; color: #1e1b18; }
+.portfolio-garden-dialog__bar a:focus-visible,
+.portfolio-garden-dialog__bar button:focus-visible { outline: 2px solid #fffefa; outline-offset: 2px; }
+.portfolio-garden-dialog__frame { flex: 1 1 auto; width: 100%; min-height: 0; border: 0; background: #fffefa; }
+
+@media (max-width: 1000px) {
+  /* 单栏时的顺序：截图 → 标题和“进店坐坐” → 我在意的几件事 → 数字和联机版说明。
+     左栏的几块内容在这里拆开，和右栏的文字穿插排列。 */
+  .portfolio-page--newsroom .portfolio-garden-lead { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .portfolio-page--newsroom .portfolio-garden-lead__side { display: contents; }
+  .portfolio-page--newsroom .portfolio-garden-lead__visual { order: 1; }
+  .portfolio-page--newsroom .portfolio-garden-lead__text { order: 2; margin-top: 26px; }
+  .portfolio-page--newsroom .portfolio-garden-lead__facts { order: 3; }
+  .portfolio-page--newsroom .portfolio-garden-lead__online { order: 4; }
+  .portfolio-page--newsroom .portfolio-garden-lead .portfolio-garden__limit { order: 5; }
+  .portfolio-page--newsroom .portfolio-garden-games { grid-template-columns: 1fr; }
+  .portfolio-page--newsroom .portfolio-garden-game,
+  .portfolio-page--newsroom .portfolio-garden-game:first-child,
+  .portfolio-page--newsroom .portfolio-garden-game:last-child {
+    padding: 26px 0 30px;
+    border-left: 0;
+    border-top: 1px solid var(--news-rule);
+  }
+
+  .portfolio-page--newsroom .portfolio-garden-game:first-child { border-top: 0; }
+  .portfolio-page--newsroom .portfolio-garden-films { grid-template-columns: 1fr; }
+  .portfolio-page--newsroom .portfolio-garden-film,
+  .portfolio-page--newsroom .portfolio-garden-film + .portfolio-garden-film {
+    padding: 26px 0 30px;
+    border-left: 0;
+  }
+
+  .portfolio-page--newsroom .portfolio-garden-film + .portfolio-garden-film { border-top: 1px solid var(--news-rule); }
+}
+
+@media (max-width: 640px) {
+  .portfolio-page--newsroom .portfolio-garden__note { margin: -12px 0 30px; }
+  .portfolio-page--newsroom .portfolio-garden-lead { padding: 24px 0 32px; }
+  .portfolio-page--newsroom .portfolio-garden-lead__decisions div { grid-template-columns: 1fr; gap: 4px; }
+  .portfolio-page--newsroom .portfolio-garden-lead__facts { grid-template-columns: 1fr; gap: 14px; }
+  .portfolio-page--newsroom .portfolio-garden-lead__facts li,
+  .portfolio-page--newsroom .portfolio-garden-lead__facts li:first-child { padding: 0; border-left: 0; }
+  .portfolio-page--newsroom .portfolio-garden__play { width: 100%; justify-content: center; }
+  .portfolio-page--newsroom .portfolio-garden-film { grid-template-columns: 132px minmax(0, 1fr); gap: 16px; }
+  .portfolio-page--newsroom .portfolio-garden-neighbor { grid-template-columns: 1fr; gap: 8px; }
+  .portfolio-page--newsroom .portfolio-garden-neighbor .portfolio-garden__kicker,
+  .portfolio-page--newsroom .portfolio-garden-neighbor > p:not([class]),
+  .portfolio-page--newsroom .portfolio-garden-neighbor a { grid-column: auto; grid-row: auto; }
+  .portfolio-page--newsroom .portfolio-garden-neighbor a { justify-self: start; }
+  .portfolio-page--newsroom .portfolio-garden-credits ul { columns: 1; }
+}

@@ -26,7 +26,13 @@ function PortfolioExperienceSection({ experiences }) {
       title: '独立把问题、原型与验证做成闭环',
       items: experiences.filter((experience) => experience.category === 'personal'),
     },
-  ];
+    {
+      key: 'camp',
+      eyebrow: '训练营',
+      title: '在训练营里做课题、做实验，也做小游戏',
+      items: experiences.filter((experience) => experience.category === 'camp'),
+    },
+  ].filter((group) => group.items.length > 0);
 
   return (
     <section id="experience" className="portfolio-section" aria-label="经历">
@@ -41,7 +47,7 @@ function PortfolioExperienceSection({ experiences }) {
             <p>{group.eyebrow}</p>
             <h3>{group.title}</h3>
           </div>
-          <div className="portfolio-timeline">
+          <div className={`portfolio-timeline${group.items.length === 1 ? ' portfolio-timeline--single' : ''}`}>
             {group.items.map((experience) => (
               <article key={`${experience.organization}-${experience.period}`} className="portfolio-panel portfolio-timeline__item">
                 <div className="portfolio-timeline__meta">

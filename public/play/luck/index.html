@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101c2b">
+  <meta name="description" content="来鹅老板的小店，切开霉豆腐，甩掉一点烦恼。不限时，没有失败，慢慢玩就好。">
+  <title>鹅来切霉运 · 今天的烦恼，到此为止</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23101c2b'/%3E%3Cpath d='M14 46V27Q14 12 29 12Q42 12 42 27V43Q38 54 25 53Z' fill='%23fff4dc'/%3E%3Cpath d='m41 26 16 7-16 4' fill='%23ffb172'/%3E%3Ccircle cx='34' cy='25' r='2.5' fill='%23101c2b'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-screen="home">
+  <header class="site-header">
+    <a class="wordmark" href="#" aria-label="鹅来切霉运，返回店铺"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 31V17C8 6 25 6 25 18v9c0 8-17 11-17 4Z" fill="currentColor"/><path d="m25 16 10 5-10 3" fill="#ffb473"/><circle cx="20" cy="16" r="1.6" fill="#101c2b"/></svg><span>鹅来切霉运</span></a>
+    <span class="header-note">给坏心情，放个小假。</span>
+    <div class="settings">
+      <button class="icon-button" id="music-toggle" aria-label="关闭背景音乐" aria-pressed="true" title="背景音乐"></button>
+      <button class="icon-button" id="sound-toggle" aria-label="关闭音效" aria-pressed="true" title="音效"></button>
+      <button class="icon-button" id="haptic-toggle" aria-label="开启震动" aria-pressed="false" title="震动"></button>
+      <button class="icon-button" id="help-button" aria-label="怎么玩" title="怎么玩"></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="home-screen" class="screen home-screen" aria-labelledby="home-title">
+      <div class="shop-scene">
+        <img class="shop-background" src="assets/goose-shop.png" alt="夜里的霓虹豆腐小店，白鹅老板在柜台后等你" fetchpriority="high">
+        <div class="scene-shade"></div>
+        <div class="home-copy">
+          <h1 id="home-title">鹅来<span>切霉运</span><i aria-hidden="true">！</i></h1>
+          <p class="home-line">切开一块豆腐，<br>甩掉一点烦恼。</p>
+          <button id="poke-button" class="primary-button home-cta"><span>咦？戳戳这块霉豆腐</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+          <p class="home-footnote">不限时，不扣分。慢慢来就好。</p>
+        </div>
+        <button id="tofu-hotspot" class="tofu-hotspot" aria-label="戳戳柜台上的霉豆腐"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-3 13 4-3 4 5 3-2-4-5 5-1Z"/></svg><span>戳一下？</span></button>
+        <div class="shop-open"><span></span>营业中 · 烦恼回收处</div>
+      </div>
+      <div class="home-bottom"><p>今日特供：把不开心，统统切掉。</p><span>鹅老板的小店 · 随时欢迎你</span></div>
+    </section>
+
+    <section id="play-screen" class="screen play-screen" aria-labelledby="play-title" hidden>
+      <div class="play-topline"><button id="finish-button" class="text-button">今天先到这儿<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></button><span id="board-number">第 1 板</span></div>
+      <div class="play-heading"><h1 id="play-title" tabindex="-1">先把霉运，切成小块。</h1><p id="play-instruction">沿一条虚线，从这头划到那头。</p></div>
+      <div class="game-layout">
+        <aside class="session-ledger"><h2>本次小账本</h2><div class="ledger-stat"><strong id="total-luck">0</strong><span>个霉运已甩走</span></div><div class="ledger-bottom"><span>完整清空</span><b><span id="total-boards">0</span> 板</b></div><p>没有需要追赶的进度，<br>按你的节奏来。</p><svg class="ledger-spark" viewBox="0 0 90 45" aria-hidden="true"><path d="M5 32c18-35 27 19 44-4s23-11 33-18"/><path d="m72 10 10 0-1 11"/></svg></aside>
+        <div class="board-stage"><div class="board-light"></div><div id="held-label" class="held-label" hidden></div><canvas id="game-canvas" width="640" height="640" role="img" aria-label="4乘4霉豆腐。沿虚线切六刀，切完后拖动豆腐块甩走。也可使用下方点击辅助。"></canvas><div class="board-caption"><span id="phase-label">切开霉运</span><div id="progress-marks" class="progress-marks" aria-label="切割进度"></div><span id="phase-count">0 / 6 刀</span></div></div>
+        <aside class="boss-companion"><div class="comfort-bubble" id="comfort-bubble"><p id="comfort-text" role="status" aria-live="polite">这一板，鹅陪你慢慢切。</p><span>鹅老板</span></div><img id="companion-goose" src="assets/goose-boss.png" alt="穿着围裙的鹅老板"><p class="companion-note">小店常开，坏心情常走。</p></aside>
+      </div>
+      <div class="play-bottom"><button id="assist-button" class="assist-button">不方便划？点这里切一刀<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6M5 4a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 10a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></button><span id="game-hint">六刀之后，就可以把烦恼甩走啦。</span></div>
+    </section>
+
+    <section id="result-screen" class="screen result-screen" aria-labelledby="result-heading" hidden>
+      <div class="result-copy"><span class="open-stamp">今日份 · 轻松一点</span><h1 id="result-heading" tabindex="-1">今天的霉运，<br><span>就到这里。</span></h1><p id="result-quote" class="result-quote"></p><p id="result-summary" class="result-summary"></p><div class="result-actions"><button id="save-button" class="primary-button">保存收工小票<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5"/></svg></button><button id="share-button" class="secondary-button">分享这份轻松<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 8 6-4m-6 12 6 4"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="4" r="3"/><circle cx="18" cy="20" r="3"/></svg></button></div><div class="replay-actions"><button id="replay-button" class="text-button">再玩一局 <span aria-hidden="true">↗</span></button><button id="return-home-button" class="text-button">回店里看看</button></div><p id="result-note" class="result-note" role="status">想留住这一刻，就把小票带走吧。</p></div>
+      <div class="receipt-wrap"><article class="receipt" id="receipt"><div class="receipt-top"><span>鹅来切霉运</span><span id="receipt-date"></span></div><h2>霉运清理小票</h2><div class="receipt-number"><strong id="result-count">0</strong><span>个霉运，已甩走</span></div><p class="receipt-summary" id="receipt-summary"></p><div class="receipt-rule"></div><blockquote id="final-quote"></blockquote><div class="receipt-goose"><img src="assets/goose-boss.png" alt="准备收工的鹅老板"><span>鹅老板<br><small>盖章，下班！</small></span><div class="receipt-seal">霉运<br>打烊</div></div><div class="receipt-rule"></div><p class="receipt-bottom">不必事事顺利，也值得好好休息。</p><div class="receipt-barcode" aria-hidden="true"></div><span class="receipt-id" id="receipt-id"></span></article><span class="receipt-shadow"></span></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>鹅来切霉运</span><span>烦恼不必打包带走。</span><button id="about-button">关于这家店</button></footer>
+
+  <dialog id="story-dialog" class="story-dialog"><button class="dialog-close icon-button" data-close="story-dialog" aria-label="先回店铺">×</button><img src="assets/goose-boss.png" alt="鹅老板"><div class="story-content"><p class="speaker-name">鹅老板</p><h2>哎！不能摸不能摸！</h2><p>你这小鹅，摸了我还怎么卖呀！<br>罚你帮我把霉运统统切掉！</p><button id="start-button" class="primary-button">老板！这一板我全要了！<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button><span class="story-aside">放心，切多少都行。鹅不催你。</span></div></dialog>
+  <dialog id="board-dialog" class="board-dialog"><span class="cleared-symbol" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="m16 32 11 11 23-25"/></svg></span><p class="speaker-name">鹅老板说</p><h2>这一板霉运，<br>被鹅刮完啦！</h2><blockquote id="board-last-comfort" class="board-last-comfort"></blockquote><p id="board-complete-note"></p><button id="next-board-button" class="primary-button">再来刮一板！<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button><button id="end-button" class="secondary-button">霉运刮完啦！鹅要走啦！</button></dialog>
+  <dialog id="info-dialog" class="info-dialog"><button class="dialog-close icon-button" data-close="info-dialog" aria-label="关闭">×</button><h2 id="info-title">怎么玩</h2><div id="info-content"></div><button class="primary-button" data-close="info-dialog">知道啦</button></dialog>
+  <dialog id="poster-dialog" class="poster-dialog"><button class="dialog-close icon-button" data-close="poster-dialog" aria-label="关闭海报">×</button><p>长按图片保存，再分享给朋友。</p><img id="poster-preview" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E" alt="本次游戏的霉运清理小票"><a id="poster-download" class="primary-button" download="鹅来切霉运-收工小票.png">下载图片</a></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <audio id="bgm-shop" preload="none" src="assets/audio/goose-night-loop.m4a" aria-hidden="true"></audio>
+  <audio id="bgm-cut" preload="none" src="assets/audio/goose-cut-loop.m4a" aria-hidden="true"></audio>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -32,9 +32,10 @@ describe('Portfolio 首页招聘入口', () => {
     renderPortfolioPage();
 
     expect(screen.getByRole('link', { name: '首页' })).toHaveAttribute('href', '/');
-    expect(screen.getByRole('link', { name: '关键经历' })).toHaveAttribute('href', '/experience');
-    expect(screen.getByRole('link', { name: '项目 / vibe coding' })).toHaveAttribute('href', '/works');
-    expect(screen.getByRole('link', { name: '产品心得与方法' })).toHaveAttribute('href', '/notes');
+    expect(screen.getByRole('link', { name: '经历' })).toHaveAttribute('href', '/experience');
+    expect(screen.getByRole('link', { name: '项目' })).toHaveAttribute('href', '/works');
+    expect(screen.getByRole('link', { name: '后花园' })).toHaveAttribute('href', '/garden');
+    expect(screen.getByRole('link', { name: '心得' })).toHaveAttribute('href', '/notes');
     expect(screen.getByRole('link', { name: '联系' })).toHaveAttribute('href', '/contact');
     expect(screen.getByRole('link', { name: '查看项目 / vibe coding' })).toHaveAttribute('href', '/works');
   });

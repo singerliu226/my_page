@@ -5,14 +5,16 @@ import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-route
 const PortfolioPage = lazy(() => import('./pages/portfolio/PortfolioPage'));
 const PortfolioExperiencePage = lazy(() => import('./pages/portfolio/PortfolioExperiencePage'));
 const PortfolioWorksPage = lazy(() => import('./pages/portfolio/PortfolioWorksPage'));
+const PortfolioGardenPage = lazy(() => import('./pages/portfolio/PortfolioGardenPage'));
 const PortfolioNotesPage = lazy(() => import('./pages/portfolio/PortfolioNotesPage'));
+const PortfolioEssayPage = lazy(() => import('./pages/portfolio/PortfolioEssayPage'));
 const PortfolioContactPage = lazy(() => import('./pages/portfolio/PortfolioContactPage'));
 const PortfolioStyleReferencePage = lazy(() => import('./pages/portfolio/PortfolioStyleReferencePage'));
 const CollectorWorkspace = lazy(() => import('./pages/collector/CollectorWorkspace'));
 
 const PAGE_FLIP_DURATION = 950;
 const PAGE_TURN_DURATION = PAGE_FLIP_DURATION + 150;
-const PAPER_ROUTES = new Set(['/', '/experience', '/works', '/notes', '/contact', '/style-reference']);
+const PAPER_ROUTES = new Set(['/', '/experience', '/works', '/garden', '/notes', '/contact', '/style-reference']);
 
 function canRenderPortfolioPaper(location) {
   return PAPER_ROUTES.has(location.pathname);
@@ -139,7 +141,9 @@ export function AppRoutes() {
           <Route path="/method" element={<Navigate to="/notes" replace />} />
           <Route path="/experience" element={<PortfolioExperiencePage />} />
           <Route path="/works" element={<PortfolioWorksPage />} />
+          <Route path="/garden" element={<PortfolioGardenPage />} />
           <Route path="/notes" element={<PortfolioNotesPage />} />
+          <Route path="/notes/:slug" element={<PortfolioEssayPage />} />
           <Route path="/contact" element={<PortfolioContactPage />} />
           <Route path="/style-reference" element={<PortfolioStyleReferencePage />} />
           <Route path="/projects/rednote/*" element={<CollectorWorkspace />} />

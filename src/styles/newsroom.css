@@ -957,3 +957,148 @@
   .portfolio-page--newsroom .portfolio-contact-item + .portfolio-contact-item { min-height: auto; padding: 16px 0; border-right: 0; border-bottom: 1px solid var(--news-rule); }
   .portfolio-page--newsroom .portfolio-contact-item:last-child { border-bottom: 0; }
 }
+
+/* ───────── 2026-11：项目卡前置信息、文章页、训练营经历，以及手机端的三处修复 ───────── */
+
+/* 项目卡：标题旁的身份标签和时间；“我的角色 / 关键取舍 / 验证边界”放在正文最前 */
+.portfolio-page--newsroom .portfolio-project-card__title-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.portfolio-page--newsroom .portfolio-project-card__title-meta > span { color: var(--news-muted); font-family: var(--nyt-meta); font-size: 12px; letter-spacing: .04em; text-align: right; }
+.portfolio-page--newsroom .portfolio-project-card__title h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.portfolio-page--newsroom .portfolio-project-card__title h3 > span { color: inherit; font: inherit; }
+.portfolio-page--newsroom .portfolio-project-card__title h3 > em { display: inline-flex; align-items: center; min-height: 24px; padding: 3px 8px; border: 1px solid currentColor; color: var(--news-red); font-family: var(--nyt-meta); font-size: 12px; font-style: normal; font-weight: 700; letter-spacing: .06em; line-height: 1; transform: translateY(2px); }
+.portfolio-page--newsroom .portfolio-project-card__frontmatter { display: grid; gap: 0; margin: 0; border-top: 2px solid var(--news-ink); border-bottom: 1px solid var(--news-rule); }
+.portfolio-page--newsroom .portfolio-project-card__frontmatter div { display: grid; grid-template-columns: 100px 1fr; gap: 16px; padding: 13px 0; }
+.portfolio-page--newsroom .portfolio-project-card__frontmatter div + div { border-top: 1px solid var(--news-rule-soft); }
+.portfolio-page--newsroom .portfolio-project-card__frontmatter dt { margin: 0; color: var(--news-red); font-family: var(--nyt-meta); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.portfolio-page--newsroom .portfolio-project-card__frontmatter dd { margin: 0; color: var(--news-ink); font-size: 14px; line-height: 1.75; }
+
+/* 项目卡：一张主图加几张补充截图 */
+.portfolio-page--newsroom .portfolio-project-card__media--gallery,
+.portfolio-page--newsroom .portfolio-project-card__media--chart { aspect-ratio: auto; overflow: visible; border: 0; background: transparent; box-shadow: none; }
+.portfolio-page--newsroom .portfolio-project-card__gallery { display: grid; gap: 12px; }
+.portfolio-page--newsroom .portfolio-project-card__gallery > a { position: relative; display: block; overflow: hidden; border: 1px solid var(--news-rule); background: #f7f1e7; color: inherit; text-decoration: none; }
+.portfolio-page--newsroom .portfolio-project-card__gallery-main { aspect-ratio: 2 / 1; }
+.portfolio-page--newsroom .portfolio-project-card__gallery-detail { aspect-ratio: 16 / 9; }
+.portfolio-page--newsroom .portfolio-project-card__gallery img { object-fit: cover; object-position: center top; }
+.portfolio-page--newsroom .portfolio-project-card__gallery-main > span,
+.portfolio-page--newsroom .portfolio-project-card__gallery-detail > span { position: absolute; z-index: 1; top: 14px; right: 14px; padding: 7px 9px; border: 1px solid rgba(255,255,255,.7); background: rgba(24,25,29,.7); color: #fffdf8; font-family: var(--nyt-meta); font-size: 11px; letter-spacing: .06em; }
+.portfolio-page--newsroom .portfolio-project-card__media--gallery figcaption,
+.portfolio-page--newsroom .portfolio-project-card__media--chart figcaption { position: relative; right: auto; bottom: auto; left: auto; display: block; margin-top: 4px; padding-top: 9px; color: var(--news-muted); text-shadow: none; }
+
+/* 项目卡：配图是一张图表时，按原比例完整显示，说明文字放在图下面 */
+.portfolio-page--newsroom .portfolio-project-card__media--chart > a { position: relative; inset: auto; display: block; border: 1px solid var(--news-rule); background: #fff; }
+.portfolio-page--newsroom .portfolio-project-card__media--chart img { height: auto; background: #fff; }
+.portfolio-page--newsroom .portfolio-project-card__media--chart > a > span { position: static; display: block; padding: 8px 12px; border: 0; border-top: 1px solid var(--news-rule-soft); background: transparent; color: var(--news-muted); }
+
+/* 关键经历：公司名和时间放在上面，正文在下面。
+   原来两块并排，公司名那一列会被挤到只剩一个字宽，名字变成竖排。 */
+.portfolio-page--newsroom .portfolio-timeline__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  align-content: start;
+  gap: 18px;
+}
+
+.portfolio-page--newsroom .portfolio-timeline__content { padding: 0; }
+
+/* 只有一条的分组（训练营）：横向铺满，要点分两栏 */
+.portfolio-page--newsroom .portfolio-timeline--single { grid-template-columns: minmax(0, 1fr); }
+.portfolio-page--newsroom .portfolio-timeline--single .portfolio-timeline__item {
+  grid-template-columns: minmax(220px, 0.3fr) minmax(0, 1fr);
+  grid-template-rows: auto;
+  gap: 36px;
+  min-height: 0;
+  border-right: 0;
+}
+
+.portfolio-page--newsroom .portfolio-timeline--single .portfolio-bullets { columns: 2; column-gap: 40px; }
+.portfolio-page--newsroom .portfolio-timeline--single .portfolio-bullets li { break-inside: avoid; }
+
+/* 心得页：长文目录 */
+.portfolio-page--newsroom .portfolio-essay-list { margin: 0 0 56px; padding: 0; border-top: 3px solid var(--news-ink); list-style: none; }
+.portfolio-page--newsroom .portfolio-essay-list__heading { margin: 56px 0 14px; color: var(--news-red); font-family: var(--nyt-meta); font-size: 12px; font-weight: 700; letter-spacing: .1em; }
+.portfolio-page--newsroom .portfolio-essay-index { display: grid; grid-template-columns: 180px minmax(0, 1fr) auto; align-items: end; gap: 10px 28px; padding: 30px 0; border-bottom: 1px solid var(--news-rule); }
+.portfolio-page--newsroom .portfolio-essay-index:last-child { border-bottom: 0; }
+.portfolio-page--newsroom .portfolio-essay-index > p:first-child { grid-row: span 2; align-self: start; margin: 4px 0 0; color: var(--news-red); font-family: var(--nyt-meta); font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+.portfolio-page--newsroom .portfolio-essay-index h3 { margin: 0; color: var(--news-ink); font-family: var(--nyt-display); font-size: clamp(1.55rem, 2.2vw, 2.2rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.22; }
+.portfolio-page--newsroom .portfolio-essay-index > p:not(:first-child) { grid-column: 2; max-width: 62ch; margin: 0; color: var(--news-muted); font-size: 14px; line-height: 1.8; }
+.portfolio-page--newsroom .portfolio-essay-index a { grid-column: 3; grid-row: 1 / span 2; align-self: center; padding: 10px 0; color: var(--news-ink); font-family: var(--nyt-meta); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-decoration: none; white-space: nowrap; }
+.portfolio-page--newsroom .portfolio-essay-index a::after { content: ' →'; color: var(--news-red); }
+.portfolio-page--newsroom .portfolio-essay-index a:hover { color: var(--news-red); }
+
+/* 文章页 */
+.portfolio-page--newsroom .portfolio-essay { max-width: 820px; margin: 0 auto; padding-bottom: 82px; }
+.portfolio-page--newsroom .portfolio-essay__mast { padding: 30px 0 40px; border-bottom: 4px double var(--news-ink); }
+.portfolio-page--newsroom .portfolio-essay__mast > p:first-child { margin: 0; color: var(--news-red); font-family: var(--nyt-meta); font-size: 12px; font-weight: 700; letter-spacing: .1em; }
+.portfolio-page--newsroom .portfolio-essay__mast h1 { max-width: 20ch; margin: 20px 0 14px; color: var(--news-ink); font-family: var(--nyt-display); font-size: clamp(2.3rem, 4.6vw, 4.2rem); font-weight: 600; letter-spacing: -.05em; line-height: 1.14; }
+.portfolio-page--newsroom .portfolio-essay__dek { max-width: 50rem; margin: 0; color: var(--news-muted); font-size: clamp(1rem, 1.45vw, 1.18rem); line-height: 1.9; }
+.portfolio-page--newsroom .portfolio-essay__meta { display: flex; gap: 16px; margin-top: 24px; color: var(--news-muted); font-family: var(--nyt-meta); font-size: 12px; letter-spacing: .06em; }
+.portfolio-page--newsroom .portfolio-essay__body { max-width: 680px; margin: 0 auto; padding-top: 40px; }
+.portfolio-page--newsroom .portfolio-essay__source { margin: 0 0 34px; padding: 12px 0 12px 16px; border-left: 2px solid var(--news-red); color: var(--news-muted); font-size: 14px; line-height: 1.8; }
+.portfolio-page--newsroom .portfolio-essay__prose h2 { margin: 46px 0 16px; color: var(--news-ink); font-family: var(--nyt-display); font-size: clamp(1.55rem, 2.3vw, 2.05rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.35; }
+.portfolio-page--newsroom .portfolio-essay__prose h2:first-child { margin-top: 0; }
+.portfolio-page--newsroom .portfolio-essay__prose h3 { margin: 36px 0 12px; color: var(--news-ink); font-family: var(--nyt-display); font-size: 1.3rem; font-weight: 600; line-height: 1.45; }
+.portfolio-page--newsroom .portfolio-essay__prose p,
+.portfolio-page--newsroom .portfolio-essay__prose li { color: var(--news-ink); font-family: var(--nyt-text); font-size: 17px; line-height: 2; }
+.portfolio-page--newsroom .portfolio-essay__prose p { margin: 0 0 18px; }
+.portfolio-page--newsroom .portfolio-essay__prose ul,
+.portfolio-page--newsroom .portfolio-essay__prose ol { margin: 0 0 18px; padding-left: 1.4em; }
+.portfolio-page--newsroom .portfolio-essay__prose li { margin-bottom: 4px; }
+.portfolio-page--newsroom .portfolio-essay__prose strong { font-weight: 700; }
+.portfolio-page--newsroom .portfolio-essay__prose a { color: var(--news-red); text-underline-offset: 3px; }
+.portfolio-page--newsroom .portfolio-essay__prose blockquote { margin: 0 0 18px; padding: 2px 0 2px 18px; border-left: 2px solid var(--news-ink); }
+.portfolio-page--newsroom .portfolio-essay__prose blockquote p { margin: 0; }
+.portfolio-page--newsroom .portfolio-essay__prose pre { margin: 6px 0 24px; padding: 18px 20px; overflow-x: auto; border: 1px solid var(--news-rule); border-left: 3px solid var(--news-ink); background: var(--news-white); }
+.portfolio-page--newsroom .portfolio-essay__prose pre code { color: var(--news-ink); font-family: var(--nyt-text); font-size: 15px; line-height: 1.85; white-space: pre-wrap; word-break: break-word; }
+.portfolio-page--newsroom .portfolio-essay__prose table { width: 100%; margin: 6px 0 24px; border-top: 2px solid var(--news-ink); border-bottom: 1px solid var(--news-ink); border-collapse: collapse; }
+.portfolio-page--newsroom .portfolio-essay__prose th,
+.portfolio-page--newsroom .portfolio-essay__prose td { padding: 10px 14px 10px 0; border-bottom: 1px solid var(--news-rule-soft); color: var(--news-ink); font-size: 15px; line-height: 1.7; text-align: left; vertical-align: top; }
+.portfolio-page--newsroom .portfolio-essay__prose th { color: var(--news-red); font-family: var(--nyt-meta); font-size: 12px; font-weight: 700; letter-spacing: .06em; }
+.portfolio-page--newsroom .portfolio-essay__prose img { display: block; width: 100%; height: auto; margin: 6px 0; border: 1px solid var(--news-rule); background: #fff; }
+.portfolio-page--newsroom .portfolio-essay__loop { margin-top: 58px; padding: 28px 0; border-top: 1px solid var(--news-ink); border-bottom: 1px solid var(--news-ink); }
+.portfolio-page--newsroom .portfolio-essay__loop > p { margin: 0 0 18px; color: var(--news-red); font-family: var(--nyt-meta); font-size: 12px; font-weight: 700; letter-spacing: .1em; }
+.portfolio-page--newsroom .portfolio-essay__loop ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 20px; margin: 0; padding: 0; list-style: none; }
+.portfolio-page--newsroom .portfolio-essay__loop li { display: grid; grid-template-columns: 28px 1fr; gap: 8px; color: var(--news-ink); font-family: var(--nyt-text); font-size: 14px; line-height: 1.55; }
+.portfolio-page--newsroom .portfolio-essay__loop li span { color: var(--news-red); font-family: var(--nyt-meta); font-size: 12px; line-height: 1.8; }
+
+@media (max-width: 900px) {
+  .portfolio-page--newsroom .portfolio-timeline--single .portfolio-timeline__item { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+}
+
+@media (max-width: 640px) {
+  /* 手机上项目卡改成上下排。前面第 814 行附近的双栏规则写在手机规则之后，把它盖掉了，截图因此被挤成 0 宽。 */
+  .portfolio-page--newsroom .portfolio-project-card { grid-template-columns: minmax(0, 1fr); }
+  .portfolio-page--newsroom .portfolio-project-card__title-meta { display: grid; gap: 6px; }
+  .portfolio-page--newsroom .portfolio-project-card__title-meta > span { text-align: left; }
+  .portfolio-page--newsroom .portfolio-project-card__frontmatter div { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+
+  /* 六个栏目在一行里均分，不再有一项被挤出屏幕 */
+  .portfolio-page--newsroom .portfolio-nav { justify-content: space-between; overflow-x: visible; }
+  .portfolio-page--newsroom .portfolio-nav__item { padding: 13px 6px; font-size: 13px; }
+  .portfolio-page--newsroom .portfolio-nav__item:first-child { padding-left: 0; }
+  .portfolio-page--newsroom .portfolio-nav__item:last-child { padding-right: 0; }
+  .portfolio-page--newsroom .portfolio-nav__item:not(:last-child)::after { display: none; }
+
+  /* 报头的名字是横向拉宽的；手机上靠左排，要从左边拉，否则“刘”字会被屏幕边缘切掉一点 */
+  .portfolio-page--newsroom .portfolio-brand__text strong { transform-origin: left center; }
+
+  .portfolio-page--newsroom .portfolio-timeline--single .portfolio-bullets { columns: 1; }
+  .portfolio-page--newsroom .portfolio-essay-list__heading { margin-top: 40px; }
+  .portfolio-page--newsroom .portfolio-essay-index { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 26px 0; }
+  .portfolio-page--newsroom .portfolio-essay-index > p:first-child,
+  .portfolio-page--newsroom .portfolio-essay-index > p:not(:first-child),
+  .portfolio-page--newsroom .portfolio-essay-index a { grid-column: auto; grid-row: auto; }
+  .portfolio-page--newsroom .portfolio-essay-index > p:first-child { margin-top: 0; }
+  .portfolio-page--newsroom .portfolio-essay-index a { justify-self: start; }
+  .portfolio-page--newsroom .portfolio-essay { padding-bottom: 52px; }
+  .portfolio-page--newsroom .portfolio-essay__mast { padding: 22px 0 30px; }
+  .portfolio-page--newsroom .portfolio-essay__mast h1 { margin-top: 16px; font-size: clamp(2rem, 10vw, 2.9rem); }
+  .portfolio-page--newsroom .portfolio-essay__body { padding-top: 30px; }
+  .portfolio-page--newsroom .portfolio-essay__prose p,
+  .portfolio-page--newsroom .portfolio-essay__prose li { font-size: 16px; line-height: 1.95; }
+  .portfolio-page--newsroom .portfolio-essay__prose pre { padding: 14px; }
+  .portfolio-page--newsroom .portfolio-essay__prose table { display: block; overflow-x: auto; }
+  .portfolio-page--newsroom .portfolio-essay__loop { margin-top: 42px; }
+  .portfolio-page--newsroom .portfolio-essay__loop ol { grid-template-columns: minmax(0, 1fr); }
+}

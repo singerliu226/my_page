@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>我的B站选课表 · 改版示例</title>
+<style>
+:root{--ink:#183047;--muted:#4b6173;--blue:#194f7e;--paper:#fff;--bg:#f1f4f7;--line:#ced9e2;--soft:#e8f0f6;--warn:#75480f;--radius:14px;--space:8px;color-scheme:light}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-size:16px;line-height:1.7}::selection{background:#c8dff0;color:#102c44}button,input,select{font:inherit}button,a,select,summary{touch-action:manipulation}a{color:var(--blue);text-underline-offset:4px}a:hover{color:#102f4c}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.55}:focus-visible{outline:3px solid #276b9d;outline-offset:4px}select{color:var(--ink);caret-color:var(--blue)}h1,h2,h3,p{margin:0}h1,h2,h3{line-height:1.35;text-wrap:balance}h1{font-size:34px;font-weight:650;letter-spacing:-.025em}h2{font-size:28px;letter-spacing:-.02em}h3{font-size:19px}button,a,select{transition:background .15s ease,color .15s ease}header{background:var(--blue);color:white}.topline{max-width:1184px;margin:auto;padding:20px 32px;display:flex;justify-content:space-between;gap:16px;align-items:center}.brand{font-weight:650;font-size:18px}.edition{color:#deebf5;font-size:14px}.page{max-width:1184px;margin:auto;padding:36px 32px 64px}.intro{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:24px}.intro p{margin-top:10px;color:var(--muted)}.intro .date{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted)}.notice{padding:14px 0 22px;color:var(--muted);max-width:76ch}.notice strong{color:var(--ink);font-weight:600}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:36px;align-items:start}.learning{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px}.leadline{display:flex;gap:16px;justify-content:space-between;align-items:center;padding-bottom:18px;margin-bottom:24px;border-bottom:1px solid var(--line)}.leadline h2{font-size:20px}.evidence{color:var(--warn);font-size:14px}.title{font-size:29px;line-height:1.45;overflow-wrap:anywhere}.byline{font-size:14px;color:var(--muted);margin:12px 0 24px}.reason{font-size:18px;line-height:1.85;margin-bottom:24px}.factblock{margin-top:24px}.factblock h3{font-size:16px;margin-bottom:7px}.factblock p{color:var(--muted);line-height:1.8}.timing{display:flex;gap:8px 20px;flex-wrap:wrap;margin:28px 0 20px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}.timing strong{font-weight:600}.timing span{color:var(--muted)}.primary{display:inline-flex;align-items:center;justify-content:center;min-height:46px;background:var(--blue);color:white;border:1px solid var(--blue);border-radius:8px;padding:9px 20px;text-decoration:none;font-weight:600}.primary:hover{background:#123d60;color:white}.buttonnote{font-size:13px;color:var(--muted);margin-top:12px}.source{margin-top:24px;font-size:14px}.source summary{cursor:pointer;color:var(--blue);min-height:36px}.source blockquote{margin:12px 0;padding:0;color:var(--muted);line-height:1.8}.source .small{color:var(--muted)}aside{padding:4px 0}aside h2{font-size:21px;margin-bottom:16px}.control{margin-bottom:22px}.control label{display:block;font-size:15px;font-weight:600;margin-bottom:8px}.control select{width:100%;min-height:46px;border:1px solid #a9bbc9;background:white;border-radius:8px;padding:8px 36px 8px 12px}.profiledesc{color:var(--muted);font-size:14px;line-height:1.8;margin-top:8px}.goal{padding-top:22px;margin-top:24px;border-top:1px solid var(--line)}.goal h3{font-size:15px;margin-bottom:8px}.goal p{font-size:16px}.profile-tip{font-size:13px;color:var(--muted);margin:20px 0}.promptlink{display:block;margin:20px 0;font-size:15px}.optional{margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}.optional>h2{font-size:20px;margin-bottom:14px}.optional-title{font-size:18px;margin-bottom:8px}.optional p{color:var(--muted);font-size:15px}.optional a{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;font-weight:600}.small-meta{color:var(--muted);font-size:14px;margin-bottom:8px}.empty h2{font-size:27px;margin-bottom:14px}.empty p{color:var(--muted);line-height:1.9}.empty .next{margin-top:20px;color:var(--ink)}.review{margin-top:42px;border-top:1px solid var(--line);padding-top:22px}.review>summary{font-size:19px;font-weight:600;cursor:pointer;min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:16px;list-style:none}.review>summary:after{content:'＋';font-weight:400}.review[open]>summary:after{content:'－'}.review-intro{margin:12px 0 22px;color:var(--muted);font-size:15px}.review-row{padding:18px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:8px 20px}.review-row h3{font-size:16px}.review-row p{font-size:14px;color:var(--muted);grid-column:1/-1;max-width:80ch}.decision{text-align:right;font-size:14px;color:var(--muted)}footer{margin-top:32px;font-size:13px;color:var(--muted);padding-top:20px;border-top:1px solid var(--line);line-height:1.8}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}[hidden]{display:none!important}
+@media(max-width:860px){.layout{grid-template-columns:1fr;gap:24px}aside{grid-row:1;display:grid;grid-template-columns:1fr 170px;gap:0 24px}aside h2{grid-column:1/-1}.goal{grid-column:1/-1;margin-top:0;padding-top:10px}.profile-tip,.promptlink{grid-column:1/-1;margin:8px 0}.control{margin-bottom:12px}.profiledesc{max-width:65ch}.learning{padding:28px}.page{padding:28px 24px 48px}}
+@media(max-width:520px){.topline{padding:16px 20px}.edition{font-size:12px}.brand{font-size:16px}.page{padding:24px 20px 40px}.intro{display:block;margin-bottom:12px}h1{font-size:29px}.intro .date{font-size:13px;text-align:left;margin-top:12px}.intro p{font-size:15px}.notice{font-size:14px;padding-bottom:20px}.layout{gap:20px}aside{grid-template-columns:1fr;gap:0}.control{margin-bottom:16px}.goal{padding-top:16px}.learning{padding:22px 20px}.leadline{align-items:start;gap:10px;margin-bottom:20px}.leadline h2{font-size:18px}.evidence{font-size:12px;white-space:nowrap}.title{font-size:24px}.reason{font-size:16px}.byline{margin-bottom:18px}.timing{display:block;font-size:15px;margin-top:22px}.timing div+div{margin-top:5px}.primary{width:100%}.review{margin-top:30px}.review>summary{font-size:17px}.review-row{grid-template-columns:minmax(0,1fr) 74px;gap:8px 12px}.optional-title{font-size:17px}.profile-tip{margin-bottom:8px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.settings>summary{font-size:17px;font-weight:600;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px}
+.settings[open]>summary{margin-bottom:20px}
+.setting-verb{font-size:14px;font-weight:400;color:var(--blue);white-space:nowrap}
+.practice-toggle{display:flex;gap:10px;align-items:center;min-height:44px;font-size:14px;color:var(--muted)}
+.practice-toggle input{width:18px;height:18px;accent-color:var(--blue)}
+@media(max-width:860px){aside{display:block}.settings{padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.settings-body{padding:8px 0}.intro{margin-bottom:8px}.notice{padding:8px 0 14px}.byline{margin-bottom:16px}.reason{margin-bottom:16px}.timing{margin-top:18px}.layout{gap:18px}}
+@media(max-width:520px){.settings>summary{font-size:15px}.page{padding-top:20px}.intro p{margin-top:8px}.intro .date{margin-top:8px}.timing>span{display:block;margin-top:4px}.title{font-size:23px}.learning{padding:20px 18px}.factblock{margin-top:20px}}
+</style>
+</head>
+<body>
+<header><div class="topline"><div class="brand">B站学习助手</div><div class="edition">课表改版示例</div></div></header>
+<main class="page">
+ <div class="intro"><div><h1>我的B站选课表</h1><p>按这次想学的内容，先挑一条。</p></div><div class="date">素材日期 · 2026.10.28</div></div>
+ <p class="notice"><strong>按摘要初筛的示例。</strong>素材来自10月28日日报，尚待核对字幕。可切换学习目标，比较同一批视频的取舍。</p>
+ <div class="layout">
+  <section class="learning" aria-label="本次学习候选">
+   <div id="content"></div>
+   <div class="optional" id="optional" hidden></div>
+  </section>
+  <aside aria-label="示例学习档案">
+   <details class="settings" id="settings" open><summary><span id="settings-summary">学习目标与时间</span><span class="setting-verb">调整</span></summary><div class="settings-body">
+   <div class="control"><label for="profile">示例目标</label><select id="profile"><option value="product">了解AI产品的记忆功能</option><option value="communication">分析AI内容传播现象</option><option value="python">从零学Python</option></select><p class="profiledesc" id="profiledesc"></p></div>
+   <div class="control"><label for="budget">这次有多少时间</label><select id="budget"><option value="10">10分钟</option><option value="15">15分钟</option><option value="30" selected>30分钟</option><option value="60">60分钟</option></select></div>
+   <label class="practice-toggle"><input id="practice" type="checkbox" checked>留几分钟整理或练习</label>
+   <div class="goal"><h3>这次想弄懂</h3><p id="goal"></p></div>
+   <p class="profile-tip">以上档案为演示设定，未替你确认。换一个目标或时间，可以查看筛选结果怎样改变。</p>
+   <a class="promptlink" href="给WorkBuddy的改进提示词.txt">查看可复制给WorkBuddy的提示词</a>
+   </div></details>
+  </aside>
+ </div>
+ <details class="review" id="review"><summary>其他视频为什么没排进来？</summary><p class="review-intro">按当前示例目标判断。这里的“暂缓”只表示不适合这次安排，不评价视频对其他人的价值。</p><div id="reviewlist"></div></details>
+ <footer>资料取自本机10月28日日报。视频标题、UP主、时长和链接保留原记录；适合程度、取舍与小练习为本次初筛建议。看视频用时按原速计算，练习用时是估计。此页面不读取账号、不调用模型，也不会改变现有定时任务。</footer>
+ <p class="sr-only" id="announce" role="status" aria-live="polite"></p>
+</main>
+<script type="application/json" id="source-data">{"source_file": "/Users/liuchang/Desktop/视频学习/日报/2026-10-28.html", "sha256": "a83ec7b09ddb50254af14f286869832b46cc8b014f13961dcdf1ca63dc146741", "total_video_seconds": 8161, "entries": [{"id": 1, "title": "Personal Agent 02：长期记忆的设计与纠错", "author": "AI架构师Leo", "duration": "08:57", "duration_seconds": 537, "published_label": "10-27", "bv": "BV1oUx36bEuZ", "url": "https://www.bilibili.com/video/BV1oUx36bEuZ", "summary": "user.md 与 memory.md 分开存放，开新对话只带前两个；偏好变更在原条目标注「已被替代」而非新增一条；每条记忆记下作者、时间与确定度，避免小模型写错被强模型照收。", "source_type": "已有AI日报摘要，非本轮字幕核验", "source_date": "2026-10-28"}, {"id": 2, "title": "31 万行代码重构：先统一标准，再交给 AI", "author": "电竞-玖天镜花", "duration": "16:25", "duration_seconds": 985, "published_label": "10-27", "bv": "BV1cBxu6bEVJ", "url": "https://www.bilibili.com/video/BV1cBxu6bEVJ", "summary": "流程为先让模型扫描高危方向、人工定优先级，再把分层、建模、依赖的共识写成常驻规则与按需技能后迁移；提及负责人先亲自改最复杂的包、全量生成测试用例会漏高危场景等做法。", "source_type": "已有AI日报摘要，非本轮字幕核验", "source_date": "2026-10-28"}, {"id": 3, "title": "「压冬」：明代海贸的两个死结", "author": "林夏啊啊啊啊啊", "duration": "11:56", "duration_seconds": 716, "published_label": "10-28", "bv": "BV12gxG65Ew5", "url": "https://www.bilibili.com/video/BV12gxG65Ew5", "summary": "从季风周期讲起：一年只能跑一趟，资金周转受物理条件限制；王直贩硝黄属造火药原料，「资敌」难洗白；回程只能载银，朝廷加征 152 两抬高本地米价。", "source_type": "已有AI日报摘要，非本轮字幕核验", "source_date": "2026-10-28"}, {"id": 4, "title": "资治通鉴 341：黄龙现改正朔与曹魏的代价", "author": "empire11", "duration": "10:52", "duration_seconds": 652, "published_label": "10-28", "bv": "BV1esxK66EDt", "url": "https://www.bilibili.com/video/BV1esxK66EDt", "summary": "景初元年：以黄龙瑞应当土德、改历法服色；同期京都地震、辽东兵败、公孙渊自立燕王改元；洛阳运铜铸翁仲，董寻、高堂隆上疏后工程照修，毛皇后被赐死。", "source_type": "已有AI日报摘要，非本轮字幕核验", "source_date": "2026-10-28"}, {"id": 5, "title": "性别分工是本能吗：从一档韩国综艺说起", "author": "-开开星星-", "duration": "10:54", "duration_seconds": 654, "published_label": "10-27", "bv": "BV1bExu6GEvn", "url": "https://www.bilibili.com/video/BV1bExu6GEvn", "summary": "借《思想验证区域》辩题拆「付费＝性感」：支付经「有资源→有能力→能供养→择偶价值高」的社会编码被读成魅力；以虎鲸、斑鬣狗、海马等例说明雄性支配非自然通则。", "source_type": "已有AI日报摘要，非本轮字幕核验", "source_date": "2026-10-28"}, {"id": 6, "title": "AI 失去控制的真实路径（Sam Harris × Ryan Greenblatt，中配）", "author": "Sam Harris × Ryan Greenblatt", "duration": "28:24", "duration_seconds": 1704, "published_label": "10-28", "bv": "BV123xG6CETr", "url": "https://www.bilibili.com/video/BV123xG6CETr", "summary": "受访者估计未对齐 AI 接管世界、大量人类死亡的概率为五五开，并说明属主观估计；内容含 AGI、超级智能、RSI 的定义，以及无人先停手的原因：军备竞赛与各家自认更负责。", "source_type": "已有AI日报摘要，非本轮字幕核验", "source_date": "2026-10-28"}, {"id": 7, "title": "重读《原子习惯》：用研究逐条核对", "author": "大雄Elijah", "duration": "37:26", "duration_seconds": 2246, "published_label": "10-28", "bv": "BV1fexT6pEoq", "url": "https://www.bilibili.com/video/BV1fexT6pEoq", "summary": "逐条对照研究：执行意图有 Gollwitzer 2006 的 meta 分析支持；「21 天养成」被 Lally 2009 修正为平均 66 天、区间 18–250 天；「一年 37 倍」为比喻而非复利曲线。含赞助口播。", "source_type": "已有AI日报摘要，非本轮字幕核验", "source_date": "2026-10-28"}, {"id": 8, "title": "79 条视频，54 天：B 站用户对 AI 态度的拐弯", "author": "大肥鱼工作室", "duration": "11:07", "duration_seconds": 667, "published_label": "10-27", "bv": "BV1jPxu6QEy1", "url": "https://www.bilibili.com/video/BV1jPxu6QEy1", "summary": "按播放量排 79 条 B 站标题：8/30「给她完整的一生」3.6 万播放，10/13 达 116 万，10/23「鱼灾」178 万；作者将态度拐弯归因于门槛消失，并说明文中纪念头像是虚构的。", "source_type": "已有AI日报摘要，非本轮字幕核验", "source_date": "2026-10-28"}]}</script>
+<script>
+'use strict';
+const data=JSON.parse(document.getElementById('source-data').textContent);
+const entries=data.entries;
+const profiles={
+ product:{description:'示例：新传背景，用过AI助手，想了解产品功能。编程基础尚未确认。',goal:'AI助手记住了旧偏好，怎样纠正才更合理？',primary:1,alternate:8,practice:5,altPractice:3,
+ reason:'这条摘要提到了“旧偏好如何被替代”和“记错后怎样纠正”，与想了解的记忆功能直接相关，适合作为优先核对的候选。',
+ prerequisite:'先知道AI助手会保存偏好。视频是否解释了user.md、memory.md等术语，是否需要代码基础，还要查看原内容。',
+ exercise:'拿“以前喜欢简短回答，现在需要详细解释”作例子，写下旧偏好该怎样修改。建议用5分钟试一下，也可以取消右侧的练习安排。',
+ altReason:'可以补充观察用户怎样看待AI内容。它属于传播现象讨论，不代替记忆功能的学习。',
+ reasons:{1:'直接对应记忆纠错问题，但只有旧摘要，需核字幕与术语门槛。',2:'涉及大型代码库、分层与依赖。当前基础未确认，先不排入。',3:'主题是明代海贸，与这次的AI记忆目标无关。',4:'属于历史系列第341集，与当前目标无关，前置关系也未核对。',5:'讨论性别分工与社会解释，与这次的记忆功能目标无关。',6:'AI风险访谈，范围较宽，不能替代具体功能解释。',7:'习惯与读书方法不直接解决当前问题，整条37分26秒也较长。',8:'可作拓展，但先核对作者如何从视频样本推导用户态度。'}},
+ communication:{description:'示例：新传学生，想分析AI内容的受众反应。已有基础传播学概念。',goal:'一组热门视频，能说明用户对AI的态度变了吗？',primary:8,alternate:5,practice:5,altPractice:4,
+ reason:'这条摘要围绕一组B站视频及其传播表现讨论AI态度，适合拿来练习区分“观察到的材料”和“作者的解释”。样本能支持多大结论仍待核对。',
+ prerequisite:'知道播放量、内容样本和用户态度是不同概念。无需先写代码；视频的完整论证尚待核对。',
+ exercise:'把作者给出的材料与作者作出的解释分别写一句，再写一个暂时不能推出的结论。预计5分钟。',
+ altReason:'可练习拆解“本能”这类说法。它是另一个讨论题，时间允许再看。',
+ reasons:{1:'偏向AI产品记忆设计，与本次传播分析练习的距离较远。',2:'主要讨论工程重构，偏离传播分析目标，技术门槛也较高。',3:'历史议题与当前任务无关，先不混进同一次学习。',4:'历史连载，当前目标不需要，单集独立性也未核对。',5:'可作另一个论证分析案例，但先完成AI态度这条。',6:'是AI风险观点访谈，不能直接作为B站用户态度的证据。',7:'读书方法与本次传播分析目标无关，暂不安排。',8:'与目标直接相关，但标题和播放量能否支撑态度变化，需要核对原论证。'}},
+ python:{description:'示例：没有编程基础，希望学会Python变量和基本输入输出。',goal:'能自己写出一个最简单的Python小程序。',primary:null,alternate:null,practice:0,altPractice:0,
+ reasons:{1:'讨论Agent记忆，不能代替Python基础教学。',2:'大型项目重构默认较多工程知识，入门门槛不匹配。',3:'历史内容，与Python入门无关。',4:'历史内容，与Python入门无关。',5:'社科讨论，与Python入门无关。',6:'AI风险访谈，与基础编程练习无关。',7:'读书方法，与Python入门无关。',8:'AI传播观察，与Python语法学习无关。'}}
+};
+const $=id=>document.getElementById(id);
+function el(tag,className,text){const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e}
+function append(parent,...nodes){nodes.forEach(n=>parent.append(n));return parent}
+function get(id){return entries.find(x=>x.id===id)}
+function time(sec){return `${Math.floor(sec/60)}分${String(sec%60).padStart(2,'0')}秒`}
+function link(entry,label,className){const a=el('a',className,label);const u=new URL(entry.url);if(u.protocol==='https:'&&u.hostname==='www.bilibili.com'&&/^\/video\/BV[0-9A-Za-z]+\/?$/.test(u.pathname)){a.href=u.href;a.target='_blank';a.rel='noopener noreferrer'}return a}
+function section(label,body){return append(el('div','factblock'),el('h3','',label),el('p','',body))}
+function render(){
+ const p=profiles[$('profile').value],budget=Number($('budget').value),main=get(p.primary),optional=get(p.alternate),content=$('content');
+ const practice=$('practice').checked?p.practice:0,altPractice=$('practice').checked?p.altPractice:0;
+ $('settings-summary').textContent=$('profile').selectedOptions[0].textContent+' · '+budget+'分钟';
+ $('profiledesc').textContent=p.description;$('goal').textContent=p.goal;content.replaceChildren();$('optional').replaceChildren();$('optional').hidden=true;
+ const mainFits=main&&main.duration_seconds!==null&&main.duration_seconds+practice*60<=budget*60;
+ const altFits=mainFits&&optional&&main.duration_seconds+practice*60+optional.duration_seconds+altPractice*60<=budget*60;
+ if(mainFits){
+  append(content,append(el('div','leadline'),el('h2','','先核对这一条'),el('span','evidence','按摘要初筛')),
+   el('h3','title',main.title),el('p','byline',`${main.author} · ${main.bv} · 原日报记录 ${main.duration}`),
+   el('p','reason',p.reason));
+  const timing=el('div','timing');append(timing,append(el('div'),el('strong','',`视频 ${time(main.duration_seconds)}`)),el('span','',practice?`＋ 练习预计${practice}分钟`:'本次只观看'),el('span','',`共约${Math.ceil(main.duration_seconds/60+practice)}分钟 / 可用${budget}分钟`));
+  append(content,timing,link(main,'打开原视频核对','primary'),el('p','buttonnote','目前依据旧摘要，打开后请确认内容和难度。'));
+  content.append(section('看之前，需要知道什么',p.prerequisite));
+  if(practice)content.append(section('看后可以试一下',p.exercise));
+  const detail=el('details','source');append(detail,el('summary','','查看原日报摘要'),el('blockquote','',main.summary),el('p','small','这是已有AI摘要，尚不能当作视频原文或事实核验结果。'));content.append(detail);
+  if(altFits){$('optional').hidden=false;append($('optional'),el('h2','','还有余量，再看这一条'),el('h3','optional-title',optional.title),el('p','small-meta',`视频 ${time(optional.duration_seconds)}${altPractice?' ＋ 整理预计'+altPractice+'分钟':''}`),el('p','',p.altReason),link(optional,'打开拓展候选'));}
+ }else{
+  const empty=el('div','empty');append(empty,el('h2','',main?'这次时间不够，先不硬排。':'这批视频里，还没有合适的入门课。'),el('p','',main?`最相关的候选视频长${time(main.duration_seconds)}，加上当前安排的${practice}分钟练习，超过了你设定的${budget}分钟。没有核实过章节位置，暂不切一段冒充能完成。`:'现有8条摘要里没有从变量、输入输出开始教的Python视频。把工程重构或Agent视频放进来，会让零基础的人难以跟上。'),el('p','next',main?'可以增加本次时间，或让WorkBuddy继续找更短、讲解完整的同主题视频。':'下一步应按“Python零基础＋变量＋输入输出＋小练习”继续找候选，再核字幕与教学步骤。'));content.append(empty);
+ }
+ $('reviewlist').replaceChildren();for(const e of entries){let status='本次暂缓',reason=p.reasons[e.id];if(e.id===p.primary){status=mainFits?'优先待核':'时间不够';if(!mainFits)reason+=` 当前安排超过本次${budget}分钟预算。`;}else if(e.id===p.alternate){status=altFits?'拓展待核':'备选暂缓';if(!altFits)reason+=' 本次时间或优先级不满足，暂不安排。';}const row=el('div','review-row');append(row,el('h3','',e.title),el('span','decision',status),el('p','',reason));$('reviewlist').append(row)}
+ $('announce').textContent=mainFits?`已按当前示例目标初筛，1条优先待核${altFits?'，1条拓展待核':''}。`:'本次没有可安排的候选。';
+ window.currentSelection={profile:$('profile').value,budgetMinutes:budget,primaryId:mainFits?main.id:null,alternateId:altFits?optional.id:null,totalSeconds:mainFits?main.duration_seconds+practice*60+(altFits?optional.duration_seconds+altPractice*60:0):0,contentVerified:false};
+}
+$('profile').addEventListener('change',render);$('budget').addEventListener('change',render);$('practice').addEventListener('change',render);
+if(matchMedia('(max-width:860px)').matches)$('settings').open=false;
+render();
+</script>
+</body>
+</html>

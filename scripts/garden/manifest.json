@@ -1,0 +1,57 @@
+{
+  "bili": {
+    "from": "outputs/B站学习助手改进_20261028/交付/",
+    "bytes": 55369,
+    "note": "交互示例，页面没有接模型",
+    "syncedAt": "2026-11-18"
+  },
+  "eyuzu": {
+    "from": "鹅羽鮨/（server.js、shared/、public/）",
+    "version": "1.0.0",
+    "serverSha256": "621eff282563421c57dae908f9a4cc4df2e9acb589489dfb2482bf1d3b32e717",
+    "bytes": 444662,
+    "note": "单机包：server.js 原文在页面内运行，只有电脑客人；联机版需要常驻 Node 服务",
+    "syncedAt": "2026-11-18"
+  },
+  "film:guo-shengri": {
+    "from": "W4作业/制作/蛋糕/07_交付/过生日_25-刘唱.mp4",
+    "sourceSha256": "bc8aab05364201a45b49222bef8139ff71dda81f2650be0cb54bc20001a494ff",
+    "bytes": 13254975,
+    "note": "ok 720x1280 800k+112k 13254975 bytes",
+    "syncedAt": "2026-11-18"
+  },
+  "film:hey-marvis": {
+    "from": "个人作业/Marvis报告/2026-10-25/视频制作/4小时制作版/完善R6_叙事与IP统一/总装交付_20261110_全部已采用/交付/HeyMarvis_完整合片_20261110.mp4",
+    "sourceSha256": "e781f1c84cde542f9dce81426388e00a5e089f2adb69feb22331a531df999be2",
+    "bytes": 15237780,
+    "note": "ok 720x1280 800k+112k 15237780 bytes",
+    "syncedAt": "2026-11-18"
+  },
+  "images": {
+    "from": "outputs/游戏开发心得分享_20261116/制作/图片/ 与 AI风向标/M1/最终提交_20261101/交付/图表/",
+    "note": "7 张游戏截图 + 1 张报告配图",
+    "syncedAt": "2026-11-18"
+  },
+  "kitchen": {
+    "from": "goose-kitchen-game/release/goose-kitchen-v1.5.0-deploy/",
+    "version": "1.5.0",
+    "entrySha256": "679be89df9ee8f73a4d0bdc0fe17b45d25e776f3490d46b86adc82360cd19d6e",
+    "bytes": 27908050,
+    "syncedAt": "2026-11-18"
+  },
+  "luck": {
+    "from": "小游戏部署包/鹅来切霉运-部署包/",
+    "version": "1.0.0",
+    "entrySha256": "9d17ea545597546f71ce5e9c129e3bf5c460c1e9e6205399c13dd61318b5e47a",
+    "bytes": 6617077,
+    "syncedAt": "2026-11-18"
+  },
+  "tongsui": {
+    "from": "小游戏部署包/糖水小铺-V5-WorkBuddy部署包/",
+    "version": "5.0.0",
+    "entrySha256": "6f2221256b0b59738c21c2034dfb7e22c70e70d12facb16875079b9592c47d18",
+    "bytes": 21163606,
+    "note": "原背景音乐",
+    "syncedAt": "2026-11-18"
+  }
+}
